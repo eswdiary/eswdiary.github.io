@@ -21,13 +21,13 @@
 # 网站图标
 favicon:
   enable: true
-  icon: /images/favicon.png
-  touch_icon: /images/favicon.png
+  icon: /images/favicon.ico
+  touch_icon: /images/favicon.ico
 
 # 用户头像与昵称
 avatar:
-  author_photo: /images/avatar.png
-  author_nickname: Oranges
+  author_photo: /images/avatar.jpg
+  author_nickname: ewd 
   path: /
 
 # Google 分析
@@ -40,7 +40,7 @@ gtag:
 
 # 文章评论系统
 comments:
-  enable: true
+  enable: false 
   # 目前仅支持gitalk, valine, disqus评论，选择喜欢的一种开启即可
 
   gitalk:
@@ -80,32 +80,32 @@ comments:
 # 主题页面导航栏
 navbar:
   -
-    name: Home
+    name: 主頁
     enable: true
     path: /
     key: home
   -
-    name: Archives
+    name: 歸檔 
     enable: true
     path: /archives/
     key: archives
   -
-    name: Categories
-    enable: false
+    name: 分類
+    enable: true
     path: /categories/
     key: categories
   -
-    name: Tags
+    name: 標籤 
     enable: true
     path: /tags/
     key: tags
   -
     name: Friends
-    enable: true
+    enable: false 
     path: /friends/
     key: friends
   -
-    name: About
+    name: 關於 
     enable: true
     path: /about/
     key: about
@@ -154,18 +154,10 @@ footer:
     #   name: facebook
     #   icon: facebooksquare
     #   path:
-    # -
-    #   name: twitter
-    #   icon: twitter
-    #   path:
-    # -
-    #   name: wechat
-    #   icon: wechat
-    #   path:
-    # -
-    #   name: weibo
-    #   icon: weibo
-    #   path:
+    -
+      name: twitter
+      icon: twitter
+      path:
     # -
     #   # rss需安装 hexo-generator-feed 插件
     #   # 具体参照https://github.com/hexojs/hexo-generator-feed
@@ -178,7 +170,7 @@ footer:
     # 一般用来显示根据各种场景需要切换的文本，如时间年份
     # 如：{thisYear} 会被替换为今年年份
     -
-      name: Copyright © {thisYear} Oranges
+      name: Copyright © {thisYear} ewd 
       path: https://github.com/zchengsite/hexo-theme-oranges
     -
       name: Theme by Oranges | Powered by Hexo
@@ -213,7 +205,7 @@ search:
 
 # 深/浅配色切换
 colorSwitch:
-  enable: true
+  enable: true 
 
 # 文章分享
 postShare:
@@ -229,7 +221,7 @@ postShare:
 codeBlock:
   # 代码块风格，默认normal
   # 可选：默认风格'normal'；mac黑色风格：'mac-black'
-  style: 'normal'
+  style: 'mac-black'
   # 代码复制
   copy:
     enable: true
