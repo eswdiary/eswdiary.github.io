@@ -141,10 +141,10 @@ footer:
     - name: github
       icon: github
       path: https://github.com/zchengsite/hexo-theme-oranges
-    # -
-    #   name: email
-    #   icon: envelope
-    #   path:
+    -
+       name: Soundcloud 
+       icon: soundcloud 
+       path:
     # -
     #   name: facebook
     #   icon: facebooksquare
