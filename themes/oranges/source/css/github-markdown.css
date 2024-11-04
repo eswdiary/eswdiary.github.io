@@ -158,6 +158,7 @@
 
 .markdown-body img {
   border-style: none;
+    border-radius: 10px;
 }
 
 .markdown-body code,

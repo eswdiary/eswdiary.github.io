@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" color-mode="light">
+<html lang="zh-TW" color-mode="light">
 
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="John Doe" />
+  <meta name="author" content="ewd" />
   <!-- Open Graph Description 简短摘要-->
   
   <!-- 用于搜索引擎的文章摘要 -->
@@ -18,7 +18,7 @@
       
       |
     
-     Hexo
+     ewdBlog
   </title>
 
   
@@ -28,6 +28,11 @@
 
   <!-- Raleway-Font -->
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Noto Serif TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
 
   <!-- hexo site css -->
   <link rel="stylesheet" href="/css/main.css" />
@@ -86,20 +91,20 @@
           <a href="/">主頁</a>
         </li>
       
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">歸檔</a>
-        </li>
-      
-        <li class="nav-item" data-path="/categories/">
-          <a href="/categories/">分類</a>
-        </li>
-      
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">標籤</a>
+        <li class="nav-item" data-path="/portfolio/">
+          <a href="/portfolio/">作品</a>
         </li>
       
         <li class="nav-item" data-path="/about/">
           <a href="/about/">關於</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">類別</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">歸檔</a>
         </li>
       
     </ul>
@@ -153,6 +158,9 @@
 
   
 
+  <!-- 作品集頁 -->
+  
+
   
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
@@ -160,7 +168,7 @@
       <div class="post-title">《青春合成指南》專輯淺談</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
           2024-10-27 16:01:15
         </span>
         
@@ -199,7 +207,7 @@
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
               2024-10-27 16:01:15
             </span>
             
@@ -207,7 +215,7 @@
           <div class="post-foot-prev">
             
               <a href="/2024/09/10/%E5%89%B5%E4%BD%9C%E9%9A%A8%E7%AD%86%E2%80%94%E2%80%94%E3%80%8A%E7%AC%AC%E4%B8%80%E5%B1%86%E5%AF%86%E5%8B%92%E6%97%A5%E5%B7%B4%E9%81%93%E6%AD%8C%E8%AD%9C%E6%9B%B2%E5%89%B5%E4%BD%9C%E5%A4%A7%E8%B3%BD%E3%80%8B/" target="_self">
-                <span>Next</span>
+                <span>下一頁</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
             
@@ -220,7 +228,7 @@
     <i class="iconfont icon-catalog"></i>
   </div>
   <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
+    <div class="title">目錄</div>
     <div class="catalog-content">
       
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-text">提示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B2%E7%9B%AE"><span class="toc-text">曲目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-text">References</span></a>
@@ -309,7 +317,7 @@
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+          <input type="text" class="search-input" id="search-input" placeholder="搜尋">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -361,7 +369,7 @@
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜尋，正在載入索引文件，請稍後...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -457,7 +465,7 @@
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>沒有找到内容，請嘗試更換檢索詞。<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
@@ -465,9 +473,9 @@
         error: function(xhr, status, error) {
           $resultContent.innerHTML = ""
           if (xhr.status === 404) {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具體請參考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
           } else {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>請求失敗，嘗試重新刷新頁面或稍後重試。<span></ul>";
           }
         }
       });

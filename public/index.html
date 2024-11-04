@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" color-mode="light">
+<html lang="zh-TW" color-mode="light">
 
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="John Doe" />
+  <meta name="author" content="ewd" />
   <!-- Open Graph Description 简短摘要-->
   
   <!-- 用于搜索引擎的文章摘要 -->
@@ -13,7 +13,7 @@
   
   <title>
     
-     Hexo
+     ewdBlog
   </title>
 
   
@@ -23,6 +23,11 @@
 
   <!-- Raleway-Font -->
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Noto Serif TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
 
   <!-- hexo site css -->
   <link rel="stylesheet" href="/css/main.css" />
@@ -81,20 +86,20 @@
           <a href="/">主頁</a>
         </li>
       
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">歸檔</a>
-        </li>
-      
-        <li class="nav-item" data-path="/categories/">
-          <a href="/categories/">分類</a>
-        </li>
-      
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">標籤</a>
+        <li class="nav-item" data-path="/portfolio/">
+          <a href="/portfolio/">作品</a>
         </li>
       
         <li class="nav-item" data-path="/about/">
           <a href="/about/">關於</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">類別</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">歸檔</a>
         </li>
       
     </ul>
@@ -110,6 +115,45 @@
         <div class="container index">
   <div class="post-list">
     <!-- 遍历渲染文章 -->
+    
+      <div class="post-item" title="EP-靈感 I">
+        <div class="time-m-d">2024-11-04</div>
+        <div class="title">
+          <a href="/2024/11/04/EP-%E9%9D%88%E6%84%9F-I/">
+            
+              
+                <span>EP-靈感 I</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="EP-夕霞光嶼">
+        <div class="time-m-d">2024-11-04</div>
+        <div class="title">
+          <a href="/2024/11/04/EP-%E5%A4%95%E9%9C%9E%E5%85%89%E5%B6%BC/">
+            
+              
+                <span>EP-夕霞光嶼</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="EP-青春合成指南">
+        <div class="time-m-d">2024-11-03</div>
+        <div class="title">
+          <a href="/2024/11/03/EP-%E9%9D%92%E6%98%A5%E5%90%88%E6%88%90%E6%8C%87%E5%8D%97/">
+            
+              
+                <span>EP-青春合成指南</span>
+              
+            
+          </a>
+        </div>
+      </div>
     
       <div class="post-item" title="《這一切都與我無關》演出回顧">
         <div class="time-m-d">2024-09-29</div>
@@ -229,7 +273,7 @@
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+          <input type="text" class="search-input" id="search-input" placeholder="搜尋">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -281,7 +325,7 @@
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜尋，正在載入索引文件，請稍後...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -377,7 +421,7 @@
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>沒有找到内容，請嘗試更換檢索詞。<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
@@ -385,9 +429,9 @@
         error: function(xhr, status, error) {
           $resultContent.innerHTML = ""
           if (xhr.status === 404) {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具體請參考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
           } else {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>請求失敗，嘗試重新刷新頁面或稍後重試。<span></ul>";
           }
         }
       });

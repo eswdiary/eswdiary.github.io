@@ -3,17 +3,38 @@
   padding: 0;
 }
 
-html, body {
-  font-size: 10px;
+html,
+body {
+  font-size: 11px;
   letter-spacing: 0.01rem;
   background-color: var(--bg-body);
-  transition: color 400ms ease-in-out 0s, background-color 400ms ease-in-out 0s;
-  font-family: Consolas, "Liberation Mono", Menlo, Monaco, "Source Han Sans CN", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
+  transition:
+    color 400ms ease-in-out 0s,
+    background-color 400ms ease-in-out 0s;
+  font-family: Consolas, "Liberation Mono", Menlo, Monaco, "Source Han Sans TC",
+    "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
 body.hidden {
   overflow: hidden;
   padding-right: 6px;
+}
+
+/* Title 外觀 */
+.markdown-body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  color: var(--color-text-md-title);
+}
+
+/*  嵌入外觀 */
+.markdown-body iframe {
+  margin: 40px auto;
+  display: block;
 }
 
 .markdown-body {
@@ -24,7 +45,8 @@ body.hidden {
   font-size: 1.6rem;
   line-height: 2;
   word-wrap: break-word;
-  color: var(--color-text-md-content)
+  color: var(--color-text-md-content);
+  font-family: "Noto Serif TC";
 }
 
 @media (max-width: 768px) {
@@ -40,15 +62,15 @@ body.hidden {
 
 /*控制整个滚动条*/
 ::-webkit-scrollbar {
-    background-color: transparent;
-    width: 6px;
-    height: 6px;
-    background-clip: padding-box;
+  background-color: transparent;
+  width: 6px;
+  height: 6px;
+  background-clip: padding-box;
 }
 
 /*滚动条中滑块部分*/
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(144,147,153,.5);
+  background-color: rgba(144, 147, 153, 0.5);
   /* border-radius: 5px; */
   transition: background-color 0.3s ease;
 }
@@ -90,7 +112,8 @@ a:hover {
 .friend-index .friend-list,
 .archives .post-list,
 .tag-index .tag-list,
-.about-index .markdown-body {
+.about-index .markdown-body,
+.portfolio-index {
   padding: 0 40px;
 }
 
@@ -110,7 +133,8 @@ a:hover {
   .friend-index .friend-list,
   .archives .post-list,
   .tag-index .tag-list,
-  .about-index .markdown-body {
+  .about-index .markdown-body,
+  .portfolio-index {
     padding: 0;
   }
   .category-index .category-list {
@@ -132,31 +156,31 @@ a:hover {
     font-size: 24px;
   }
   .post-catalog {
-    top: 44px!important;
-    bottom: unset!important;
-    right: 0!important;
-    width: unset!important;
+    top: 44px !important;
+    bottom: unset !important;
+    right: 0 !important;
+    width: unset !important;
     display: flex;
     justify-content: flex-end;
-    padding: 10px!important;
+    padding: 10px !important;
     background-color: #fff;
     box-shadow: -1px 2px 5px 0px #999;
-    opacity: .9;
+    opacity: 0.9;
     z-index: 9;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     transition: all 0.2s ease;
   }
   .post-catalog.hidden {
-    opacity: 0!important;
-    top: 0!important;
-    z-index: -1!important;
+    opacity: 0 !important;
+    top: 0 !important;
+    z-index: -1 !important;
   }
   .post-catalog .title {
     display: none;
   }
   .post-catalog .catalog-content {
-    height: unset!important;
+    height: unset !important;
   }
   .back-to-top {
     opacity: 0;
@@ -169,7 +193,8 @@ a:hover {
   .friend-index .friend-list,
   .archives .post-list,
   .tag-index .tag-list,
-  .about-index .markdown-body {
+  .about-index .markdown-body,
+  .portfolio-index {
     padding: 0 20px;
   }
 }
@@ -206,7 +231,9 @@ a:hover {
   padding-right: 8px;
 }
 
-.tag-details .time-m-d, .archives .time-m-d, .category-details .time-m-d {
+.tag-details .time-m-d,
+.archives .time-m-d,
+.category-details .time-m-d {
   margin: 0 30px;
 }
 
@@ -246,6 +273,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Noto Serif TC";
 }
 
 .navbar ul li {
@@ -363,7 +391,8 @@ a:hover {
   transform-origin: left;
 }*/
 
-.tag-list-count, .category-list-count {
+.tag-list-count,
+.category-list-count {
   padding: 0 5px;
   color: #aaa;
   font-size: 1.2rem;
@@ -377,7 +406,7 @@ a:hover {
 
 .category-list .category-list-item::marker {
   content: "• ";
-  color: var(--color-text-base)
+  color: var(--color-text-base);
 }
 
 .category-list .category-list-item .category-list-child {
@@ -391,7 +420,7 @@ a:hover {
 
 .friend-list-item .nickname {
   padding-right: 10px;
-  color: var(--color-text-a)
+  color: var(--color-text-a);
 }
 
 .post-details .post-title {
@@ -426,7 +455,8 @@ a:hover {
   border-top: 1px solid var(--color-divider-md-border);
 }
 
-.prev-or-next .post-foot-next, .prev-or-next .post-foot-prev {
+.prev-or-next .post-foot-next,
+.prev-or-next .post-foot-prev {
   white-space: nowrap;
 }
 
@@ -440,7 +470,9 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.post-attach .post-pubtime, .post-attach .post-tags, .post-attach .post-categories {
+.post-attach .post-pubtime,
+.post-attach .post-tags,
+.post-attach .post-categories {
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -450,7 +482,8 @@ a:hover {
   .time-m-d {
     margin-right: 15px;
   }
-  .tag-details .time-m-d, .archives .time-m-d {
+  .tag-details .time-m-d,
+  .archives .time-m-d {
     margin: 0 15px;
   }
 }
@@ -527,7 +560,7 @@ a:hover {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   transition: background-color 0.2s ease;
   visibility: visible;
   padding-right: 6px;
@@ -537,7 +570,9 @@ a:hover {
 .search-overlay.hidden {
   background-color: transparent;
   visibility: hidden;
-  transition: visibility 0s linear 0.2s, background-color 0.2s;
+  transition:
+    visibility 0s linear 0.2s,
+    background-color 0.2s;
   padding-right: 0;
 }
 
@@ -555,7 +590,9 @@ a:hover {
   z-index: 999;
   border-radius: 10px;
   margin: 0 2rem;
-  transition: top 0.2s ease, opacity 0.2s ease;
+  transition:
+    top 0.2s ease,
+    opacity 0.2s ease;
   outline: 0;
 }
 
@@ -573,7 +610,9 @@ a:hover {
   border-radius: 10px;
   background-color: var(--bg-content-search);
   padding: 0 8px;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  box-shadow:
+    0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
 }
 
 .search-input {
@@ -643,7 +682,7 @@ a:hover {
 }
 
 .share-icon {
-  position: relative
+  position: relative;
 }
 
 .share-content {
