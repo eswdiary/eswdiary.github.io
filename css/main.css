@@ -410,7 +410,7 @@ figure .pin-copy {
 
 .markdown-body img {
   border-style: none;
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .markdown-body code,
@@ -666,7 +666,8 @@ figure .pin-copy {
   height: 0.25em;
   padding: 0;
   margin: 24px 0;
-  background-color: #e1e4e8;
+  /*background-color: #e1e4e8;*/
+  background-color: #666;
   border: 0;
 }
 
@@ -734,7 +735,9 @@ figure .pin-copy {
   right: 5px;
   font-weight: bold;
   opacity: 0;
-  transition: opacity 0.3s, width 0.3s;
+  transition:
+    opacity 0.3s,
+    width 0.3s;
 }
 
 .markdown-body h1:hover .headerlink::before,
@@ -942,7 +945,7 @@ figure .pin-copy {
   word-wrap: normal;
   background-color: transparent;
   border: 0;
-  color: var(--color-text-md-pre)
+  color: var(--color-text-md-pre);
 }
 
 .markdown-body .full-commit .btn-outline:not(:disabled):hover {
@@ -953,7 +956,12 @@ figure .pin-copy {
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px;
-  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+  font:
+    11px "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    Courier,
     monospace;
   line-height: 10px;
   color: #444d56;
@@ -1817,6 +1825,8 @@ a:hover {
 }
 .footer .social {
   padding-bottom: 5px;
+/* 調整 icon 大小 */
+  font-size: 20px;
 }
 .footer .social ul {
   text-align: center;
