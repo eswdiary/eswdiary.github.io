@@ -16,11 +16,15 @@
         <li>
           <% if (item.name==='email' ) { %>
             <a title="<%- item.name %>" href="mailto:<%- item.path %>">
-              <i class="iconfont icon-<%- item.icon %>"></i>
+              <!-- <i class="iconfont icon-<%- item.icon %>"></i> -->
+              <!-- 替換成 font awesome -->
+              <i class="fa fa-<%- item.icon %>"></i>
             </a>
             <% } else { %>
               <a title="<%- item.name %>" href="<%- item.path %>">
-                <i class="iconfont icon-<%- item.icon %>"></i>
+                <!-- <i class="iconfont icon-<%- item.icon %>"></i> -->
+              <!-- 替換成 font awesome -->
+                <i class="fa fa-<%- item.icon %>"></i>
               </a>
               <% } %>
         </li>

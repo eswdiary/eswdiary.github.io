@@ -99,6 +99,7 @@ navbar:
     enable: true
     path: /archives/
     key: archives
+  # ----------------
   - name: 標籤
     enable: false
     path: /tags/
@@ -140,18 +141,17 @@ footer:
     # 按需取消注释以启用
     - name: github
       icon: github
-      path: https://github.com/zchengsite/hexo-theme-oranges
-    -
-       name: Soundcloud 
-       icon: soundcloud 
-       path:
+      path: https://github.com/eswdiary
+    - name: soundcloud
+      icon: soundcloud
+      path: 
     # -
     #   name: facebook
     #   icon: facebooksquare
     #   path:
-    - name: twitter
-      icon: twitter
-      path:
+    - name: instagram
+      icon: instagram
+      path: https://www.instagram.com/eswdiary_/
     # -
     #   # rss需安装 hexo-generator-feed 插件
     #   # 具体参照https://github.com/hexojs/hexo-generator-feed
@@ -164,9 +164,9 @@ footer:
     # 一般用来显示根据各种场景需要切换的文本，如时间年份
     # 如：{thisYear} 会被替换为今年年份
     - name: Copyright © {thisYear} ewd
-      path: https://github.com/zchengsite/hexo-theme-oranges
-    - name: Theme by Oranges | Powered by Hexo
-      path: https://github.com/zchengsite/hexo-theme-oranges
+      path: /
+    - name: Oranges | Hexo
+      path: /
 
   # 浏览量统计
   # http://busuanzi.ibruce.info/

@@ -1,10 +1,11 @@
 ---
 title: postForTest
 date: 2024-10-25 12:49:21
-tags: ['tg1']
-categories: ['ct1']
-published: false
+tags: ['dev']
+categories: ['dev']
+published: false 
 ---
+
 
 # h1 Heading 8-)
 ## h2 Heading
