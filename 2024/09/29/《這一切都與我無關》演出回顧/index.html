@@ -7,8 +7,7 @@
   <meta name="author" content="ewd" />
   <!-- Open Graph Description 简短摘要-->
   
-  <!-- 用于搜索引擎的文章摘要 -->
-  
+  <!-- 用于搜索引擎的文章摘要 --> 
   
   
   <title>
@@ -29,7 +28,7 @@
   <!-- Raleway-Font -->
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
-  <!-- 添加 Noto Serif TC 字體 -->
+  <!-- 添加 Noto Serif TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
@@ -37,14 +36,20 @@
   <!-- Hexo CSS -->
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
-  <!-- 代码块风格 -->
+
+  <!-- 引入 mdit-plugin-callouts css 裝飾 -->
+  <!-- <link rel="stylesheet" href="/css/callout_blocks.css" /> -->
+
+  <!-- 程式碼風格 -->
   
     
 <link rel="stylesheet" href="/css/figcaption/mac-block.css">
 
   
+
   <!-- 引入 font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   <!-- jquery3.3.1 -->
   
@@ -177,18 +182,20 @@
       </div>
       <div class="markdown-body">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/VeBh8Za_ETM?si=cxMZqLAmmmvKoefU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<h2 id="前情"><a href="#前情" class="headerlink" title="前情"></a>前情</h2><p>這麼想起來，我應該是在演出前一個星期才真正確定內容。一切都始於 <a target="_blank" rel="noopener" href="https://soundcloud.com/eswd/sets/w8acz2xhdnn8?si=27b0217ca32345e989298f2fa7f89daa&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">一張噪音專輯</a>，聽說可以演出……當然好啊，但回頭看看器材，馬上就發現一個問題：</p>
+<h2 id="前情"><a class="markdownIt-Anchor" href="#前情"></a> 前情</h2>
+<p>這麼想起來，我應該是在演出前一個星期才真正確定內容。一切都始於 <a target="_blank" rel="noopener" href="https://soundcloud.com/eswd/sets/w8acz2xhdnn8?si=27b0217ca32345e989298f2fa7f89daa&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing">一張噪音專輯</a>，聽說可以演出……當然好啊，但回頭看看器材，馬上就發現一個問題：</p>
 <p>實在是……太不穩定了。</p>
 <p>No Input Mixer 的參數都是隨興調整的，就算使用的素材相同效果也可能完全不一樣，但如果只是這樣，對於這種實驗類型的演出似乎不是什問題，最大的障礙還是在器材的搬運轉移可能會有一些無法預料的狀況發生，一個隨興買下的便宜 Mixer、一台超容易當機的 Win11 NB、有時會突然沒聲音的介面……</p>
 <p>最後解法就是換成 Linux 硬著頭皮上啦，沒了 Max，只好改用 Pd。</p>
-<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p>這次大致分為兩個階段，中間用不同的 Pd Patch 切換，前段是 Sample Base，後段採用 No Input Mixer 為聲音素材，即時對音檔做 Data Bending（或 Datamosh），個人相當喜歡這種無法用合成器想像的噪音。</p>
+<h2 id="作品"><a class="markdownIt-Anchor" href="#作品"></a> 作品</h2>
+<p>這次大致分為兩個階段，中間用不同的 Pd Patch 切換，前段是 Sample Base，後段採用 No Input Mixer 為聲音素材，即時對音檔做 Data Bending（或 Datamosh），個人相當喜歡這種無法用合成器想像的噪音。</p>
 <p>實際的操作方法參考了不少 <a target="_blank" rel="noopener" href="http://www.youtube.com/@SimonHutchinson">SimonHutchinson</a> 影片，推薦這個播放清單，可以增加不少奇怪的知識：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL7w4cOVVxL6HfT-FoqQ1ukW2G__l0fTr6">Databending and Datamoshing Audio | Simon Hutchinson - YouTube</a></li>
 </ul>
-<hr>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1>
+<hr />
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+
       </div>
       
         <div class="prev-or-next">
@@ -226,7 +233,7 @@
     <div class="title">目錄</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85"><span class="toc-text">前情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E5%93%81"><span class="toc-text">作品</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-text">References</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85"><span class="toc-text"> 前情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E5%93%81"><span class="toc-text"> 作品</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
       
     </div>
   </div>
