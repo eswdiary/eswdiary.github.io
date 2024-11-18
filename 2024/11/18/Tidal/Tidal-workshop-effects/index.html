@@ -12,7 +12,7 @@
   
   <title>
     
-      Tidal - Workshop 筆記目錄 
+      Tidal - Workshop——Effects 
       
       
       |
@@ -172,40 +172,62 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">Tidal - Workshop 筆記目錄</div>
+      <div class="post-title">Tidal - Workshop——Effects</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-          2024-11-17 16:49:12
+          2024-11-18 12:24:21
         </span>
         
       </div>
       <div class="markdown-body">
-        <h2 id="開始"><a class="markdownIt-Anchor" href="#開始"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#getting-started">開始</a></h2>
-<p>一切安裝完成後，每次啟動時按照以下步驟：</p>
-<ol>
-<li>啟動 <code>SuperDirt</code></li>
-</ol>
-<p>執行 SuperCollider IDE 時，<code>SuperDirt</code> 應該會自動啟動 [^1]。如果沒有，請在 SuperCollider IDE 中輸入「<code>SuperDirt.start</code>」， 並以 <code>Ctrl＋Enter</code> 執行。</p>
-<ol start="2">
-<li>啟動 Tidal Cycles</li>
-</ol>
-<p>在文字編輯器 (Pulsar、Vim、VS Code 等) 中，打開一個新檔案，以 <code>.tidal</code> 為副檔名儲存。</p>
-<details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#estuary">Estuary</a>  </div>
-<div class="callout-fold"></div></summary><div class="callout-body">
-<p>另有線上平台 <a target="_blank" rel="noopener" href="https://estuary.mcmaster.ca/">Estuary</a>，可以在不安裝任何工具的情況下體驗 Tidal，但功能上有些壓縮，稱為 Mini-Tidal。</p>
-</div>
-</details><details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#notes-in-haskell">Haskell 的註解</a>  </div>
-<div class="callout-fold"></div></summary><div class="callout-body">
-<p>Tidal 主要使用 Haskell 語言，行首使用 <code>--</code> 號來表示註解（Comment）。<br />
-註解是會被忽略執行的程式碼。可以使用註解在您的程式碼中加入各種方便自行解讀的註解，也可以用來忽略特定的行或節奏</p>
-</div>
-</details><p></p>
-<h2 id="-swig0-"><a class="markdownIt-Anchor" href="#-swig0-"></a> <a href="/2024/11/17/Tidal/Tidal-Workshop%E2%80%94%E2%80%94Basic-patterns/" title="Tidal - Workshop——Basic patterns">Tidal - Workshop——Basic patterns</a></h2>
+        <h2 id="vowel"><a class="markdownIt-Anchor" href="#vowel"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#vowel">Vowel</a></h2>
+<p>Tidal 有許多效果器可以用來改變聲音。<code>vowel</code> 是一種強調母音的 filter，試試 a、e、i、o 和 u 造成的效果：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;drum drum drum drum&quot;</span> # vowel <span class="string">&quot;a&quot;</span></span><br></pre></td></tr></table></figure>
+<p>我們可以結合使用「<code>&lt;&gt;</code>」讓每次 cycle 都套用不同效果：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;drum drum drum drum&quot;</span> # vowel <span class="string">&quot;&lt;a o e e&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>可以加入一個非母音字母來暫停 <code>vowel</code> 效果：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;drum drum drum drum&quot;</span> # vowel <span class="string">&quot;a o p p&quot;</span></span><br></pre></td></tr></table></figure>
+<p>即使兩邊並不對稱……tidal 也會盡其所能將節奏與效果對應（先不要想太複雜😅）：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;drum drum drum drum&quot;</span> # vowel <span class="string">&quot;a o e&quot;</span></span><br></pre></td></tr></table></figure>
+<p>嘗試交換效果與節奏，會發現「結構」是從左側開始：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ vowel <span class="string">&quot;a o ~ i&quot;</span> # sound <span class="string">&quot;drum&quot;</span></span><br></pre></td></tr></table></figure>
 <hr />
+<h2 id="gain-pitch-and-panorama"><a class="markdownIt-Anchor" href="#gain-pitch-and-panorama"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#gain-pitch-and-panorama">Gain, pitch and panorama</a></h2>
+<p><code>gain</code> 可以改變音量：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd hh sn:1 hh sn:1 hh&quot;</span> # gain <span class="string">&quot;1 0.7 0.5&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>speed</code> 和 <code>note</code> 都會影響 sample 的音高，其中 <code>speed</code> 會影響播放的速度（例如：<code>2</code> = 升高一個八度）：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;numbers:1 numbers:2 numbers:3 numbers:4&quot;</span> # speed <span class="string">&quot;1 1.5 2 0.5&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>up</code> 以半音為單位將 sample 的音調升高（例如 <code>12</code> = 升高一個八度）：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ up <span class="string">&quot;0 ~ 12 24&quot;</span> # sound <span class="string">&quot;jungbass:6&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>pan</code> 達到立體聲效果（<code>0</code> = 左側、<code>0.5</code> = 中間、<code>1</code> = 右側）：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;numbers:1 numbers:2 numbers:3 numbers:4&quot;</span> # pan <span class="string">&quot;0 0.5 1&quot;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="distortion-reverb-delay-and-filters"><a class="markdownIt-Anchor" href="#distortion-reverb-delay-and-filters"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#distortion-reverb-delay-and-filters">Distortion, reverb, delay and filters</a></h2>
+<p><code>shape</code> 可以用來增加失真的幾種方法之一 （但它同時也會讓音量變得更大)：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;kurt:4 kurt:4&quot;</span></span><br><span class="line">	# shape <span class="string">&quot;0 0.78&quot;</span></span><br><span class="line">	# gain <span class="string">&quot;0.7&quot;</span>  <span class="comment">-- 降低音量</span></span><br></pre></td></tr></table></figure>
+<p><code>delay</code> 可透過四個參數的組合來達成：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;cp&quot;</span></span><br><span class="line">	# delay <span class="number">0.8</span> </span><br><span class="line">	# delaytime (<span class="number">1</span>/<span class="number">6</span>) </span><br><span class="line">	# delayfeedback <span class="number">0.6</span> </span><br><span class="line">	# lock <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>lock 1</code> 表示提供給 delaytime 的時間單位是以 cycle 而非秒。</p>
+<details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div>寫了一個有趣的範例：</div>
+<div class="callout-fold"></div></summary><div class="callout-body">
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d3</span> $ pan <span class="string">&quot;0 [0.5 1]&quot;</span> # s <span class="string">&quot;cp [cp cp]&quot;</span></span><br><span class="line">  # delay <span class="number">0.8</span></span><br><span class="line">  # delayfeedback <span class="number">0.5</span></span><br><span class="line">  # delaytime (<span class="number">1</span>/<span class="number">6</span>)</span><br><span class="line">  # lock <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</div>
+</details><p>要加入 <code>reverb</code> ，可以使用 <code>dry</code>、<code>space</code> 和 <code>size</code> 參數：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[~ sn]*2&quot;</span> # dry <span class="number">0.4</span> # room <span class="number">0.6</span> # size <span class="number">0.8</span></span><br></pre></td></tr></table></figure>
+<p>此外，還有多種 filter 可以選擇：low pass、high pass、dj type 等等。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- LPF </span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;tabla*4&quot;</span> # n <span class="string">&quot;0 1 2 3&quot;</span> # cutoff <span class="number">400</span> # resonance <span class="number">0.2</span></span><br><span class="line"><span class="comment">-- 或是 lpf 400 # lpq 0.2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- HPF</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;tabla*4&quot;</span> # n <span class="string">&quot;0 1 2 3&quot;</span> # hcutoff <span class="number">600</span> # hresonance <span class="number">0.2</span></span><br><span class="line"><span class="comment">-- 或是 hpf 600 # fpq 0.2</span></span><br></pre></td></tr></table></figure>
+<p><code>resonance</code> 和 <code>hresonance</code> 接收的值介於 0 到 1 之間，注意太高的 <code>resonance</code> 可能會產生非常大的音量。</p>
+<p><code>djf</code> 是相對更直覺的 filter，它接收介於 0 和 1 之間的數字。當值小於 0.5 時是一個 low pass，當值大於 0.5 時，它是一個 high pass。</p>
+<p>瞭解更多關於效果的資訊，並查看完整的效果清單，可以參考 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/audio_effects/">Effects</a> 。</p>
+<hr />
+<p>上一篇：<a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/" title="Tidal - Workshop——Basic patterns">Tidal - Workshop——Basic patterns</a><br />
+下一篇：</p>
+<a href="/2024/11/16/Tidal/Tidal-workshop-notes-catalog/" title="Tidal - Workshop 筆記目錄">回到目錄</a>
+<p></p>
 <h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#getting-started">Workshop | Tidal Cycles</a></li>
+<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#effects">Workshop | Tidal Cycles</a></li>
 </ul>
 
       </div>
@@ -213,7 +235,7 @@
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2024/11/04/EP-%E9%9D%88%E6%84%9F-I/" target="_self">
+              <a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一頁</span>
               </a>
@@ -222,16 +244,11 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-              2024-11-17 16:49:12
+              2024-11-18 12:24:21
             </span>
             
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2024/11/17/Tidal/Tidal-Workshop%E2%80%94%E2%80%94Basic-patterns/" target="_self">
-                <span>下一頁</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -245,7 +262,7 @@
     <div class="title">目錄</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B"><span class="toc-text"> 開始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-swig0-"><span class="toc-text"> Tidal - Workshop——Basic patterns</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vowel"><span class="toc-text"> Vowel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gain-pitch-and-panorama"><span class="toc-text"> Gain, pitch and panorama</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#distortion-reverb-delay-and-filters"><span class="toc-text"> Distortion, reverb, delay and filters</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
       
     </div>
   </div>
@@ -544,12 +561,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Tidal%20-%20Workshop%20%E7%AD%86%E8%A8%98%E7%9B%AE%E9%8C%84 + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F11%2F16%2FTidal%2FTidal-Workshop-%25E7%25AD%2586%25E8%25A8%2598%25E7%259B%25AE%25E9%258C%2584%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Tidal%20-%20Workshop%E2%80%94%E2%80%94Effects + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F11%2F18%2FTidal%2FTidal-workshop-effects%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/11/16/Tidal/Tidal-Workshop-%E7%AD%86%E8%A8%98%E7%9B%AE%E9%8C%84/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/11/18/Tidal/Tidal-workshop-effects/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

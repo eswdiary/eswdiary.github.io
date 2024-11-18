@@ -12,7 +12,7 @@
   
   <title>
     
-      archive_a: 2024/9 
+      Tidal - Workshop 筆記目錄 
       
       
       |
@@ -124,104 +124,165 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2024</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  <!-- 作品集頁 -->
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Tidal - Workshop 筆記目錄</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
+          2024-11-18 12:22:50
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分類"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/Tidalcycles/" title="Tidalcycles">
+                    <b>#</b> Tidalcycles
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="開始"><a class="markdownIt-Anchor" href="#開始"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#getting-started">開始</a></h2>
+<p>一切安裝完成後，每次啟動時按照以下步驟：</p>
+<ol>
+<li>啟動 <code>SuperDirt</code></li>
+</ol>
+<p>執行 SuperCollider IDE 時，<code>SuperDirt</code> 應該會自動啟動 [^1]。如果沒有，請在 SuperCollider IDE 中輸入「<code>SuperDirt.start</code>」， 並以 <code>Ctrl＋Enter</code> 執行。</p>
+<ol start="2">
+<li>啟動 Tidal Cycles</li>
+</ol>
+<p>在文字編輯器 (Pulsar、Vim、VS Code 等) 中，打開一個新檔案，以 <code>.tidal</code> 為副檔名儲存。</p>
+<details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#estuary">Estuary</a>  </div>
+<div class="callout-fold"></div></summary><div class="callout-body">
+<p>另有線上平台 <a target="_blank" rel="noopener" href="https://estuary.mcmaster.ca/">Estuary</a>，可以在不安裝任何工具的情況下體驗 Tidal，但功能上有些壓縮，稱為 Mini-Tidal。</p>
+</div>
+</details><details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#notes-in-haskell">Haskell 的註解</a>  </div>
+<div class="callout-fold"></div></summary><div class="callout-body">
+<p>Tidal 主要使用 Haskell 語言，行首使用 <code>--</code> 號來表示註解（Comment）。<br />
+註解是會被忽略執行的程式碼。可以使用註解在您的程式碼中加入各種方便自行解讀的註解，也可以用來忽略特定的行或節奏</p>
+</div>
+</details><p></p>
+<h2 id="-swig0-"><a class="markdownIt-Anchor" href="#-swig0-"></a> <a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/" title="Tidal - Workshop——Basic patterns">Tidal - Workshop——Basic patterns</a></h2>
+<hr />
+<h2 id="-swig1-"><a class="markdownIt-Anchor" href="#-swig1-"></a> <a href="/2024/11/18/Tidal/Tidal-workshop-effects/" title="Tidal - Workshop——Effects">Tidal - Workshop——Effects</a></h2>
+<hr />
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#getting-started">Workshop | Tidal Cycles</a></li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/11/04/EP-%E9%9D%88%E6%84%9F-I/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一頁</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
+              2024-11-18 12:22:50
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分類"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/Tidalcycles/" title="Tidalcycles">
+                        <b>#</b> Tidalcycles
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/" target="_self">
+                <span>下一頁</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="Tidal - Workshop——Effects">
-        <div class="time-m-d">11-18</div>
-        <div class="title">
-          <a href="/2024/11/18/Tidal/Tidal-workshop-effects/">
-            <span>Tidal - Workshop——Effects</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="Tidal - Workshop——Basic patterns">
-        <div class="time-m-d">11-17</div>
-        <div class="title">
-          <a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/">
-            <span>Tidal - Workshop——Basic patterns</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Tidal - Workshop 筆記目錄">
-        <div class="time-m-d">11-16</div>
-        <div class="title">
-          <a href="/2024/11/16/Tidal/Tidal-workshop-notes-catalog/">
-            <span>Tidal - Workshop 筆記目錄</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="EP-靈感 I">
-        <div class="time-m-d">11-04</div>
-        <div class="title">
-          <a href="/2024/11/04/EP-%E9%9D%88%E6%84%9F-I/">
-            <span>EP-靈感 I</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="EP-夕霞光嶼">
-        <div class="time-m-d">11-04</div>
-        <div class="title">
-          <a href="/2024/11/04/EP-%E5%A4%95%E9%9C%9E%E5%85%89%E5%B6%BC/">
-            <span>EP-夕霞光嶼</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="EP-青春合成指南">
-        <div class="time-m-d">11-03</div>
-        <div class="title">
-          <a href="/2024/11/03/EP-%E9%9D%92%E6%98%A5%E5%90%88%E6%88%90%E6%8C%87%E5%8D%97/">
-            <span>EP-青春合成指南</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="《這一切都與我無關》演出回顧">
-        <div class="time-m-d">09-29</div>
-        <div class="title">
-          <a href="/2024/09/29/%E3%80%8A%E9%80%99%E4%B8%80%E5%88%87%E9%83%BD%E8%88%87%E6%88%91%E7%84%A1%E9%97%9C%E3%80%8B%E6%BC%94%E5%87%BA%E5%9B%9E%E9%A1%A7/">
-            <span>《這一切都與我無關》演出回顧</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="創作隨筆——《第一屆密勒日巴道歌譜曲創作大賽》">
-        <div class="time-m-d">09-10</div>
-        <div class="title">
-          <a href="/2024/09/10/%E5%89%B5%E4%BD%9C%E9%9A%A8%E7%AD%86%E2%80%94%E2%80%94%E3%80%8A%E7%AC%AC%E4%B8%80%E5%B1%86%E5%AF%86%E5%8B%92%E6%97%A5%E5%B7%B4%E9%81%93%E6%AD%8C%E8%AD%9C%E6%9B%B2%E5%89%B5%E4%BD%9C%E5%A4%A7%E8%B3%BD%E3%80%8B/">
-            <span>創作隨筆——《第一屆密勒日巴道歌譜曲創作大賽》</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="《青春合成指南》專輯淺談">
-        <div class="time-m-d">08-13</div>
-        <div class="title">
-          <a href="/2024/08/13/%E3%80%8A%E9%9D%92%E6%98%A5%E5%90%88%E6%88%90%E6%8C%87%E5%8D%97%E3%80%8B%E5%B0%88%E8%BC%AF%E6%B7%BA%E8%AB%87/">
-            <span>《青春合成指南》專輯淺談</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目錄</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B"><span class="toc-text"> 開始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-swig0-"><span class="toc-text"> Tidal - Workshop——Basic patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-swig1-"><span class="toc-text"> Tidal - Workshop——Effects</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -500,6 +561,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Tidal%20-%20Workshop%20%E7%AD%86%E8%A8%98%E7%9B%AE%E9%8C%84 + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F11%2F16%2FTidal%2FTidal-workshop-notes-catalog%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/11/16/Tidal/Tidal-workshop-notes-catalog/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
