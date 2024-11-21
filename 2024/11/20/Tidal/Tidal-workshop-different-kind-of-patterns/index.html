@@ -12,7 +12,7 @@
   
   <title>
     
-      Tag 
+      Tidal Workshop | Different kind of patterns 
       
       
       |
@@ -164,13 +164,6 @@
 
 
 
-  <!-- 标签页 url形式：https://yoursite/tags/ -->
-  <div class="container tag-index">
-    <div>
-      
-    </div>
-  </div>
-  
 
   
 
@@ -182,6 +175,131 @@
   
 
   
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Tidal Workshop | Different kind of patterns</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
+          2024-11-20 10:16:14
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分類"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/Tidalcycles/" title="Tidalcycles">
+                    <b>#</b> Tidalcycles
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="cyclic-repetitive"><a class="markdownIt-Anchor" href="#cyclic-repetitive"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#cyclic--repetitive">Cyclic / repetitive</a></h2>
+<p><code>run</code> 是連續 sample sequence 的簡寫：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ n (run <span class="number">4</span>) # sound <span class="string">&quot;arpy&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 或是</span></span><br><span class="line"><span class="title">d1</span> $ n <span class="string">&quot;0 .. 3&quot;</span> # sound <span class="string">&quot;arpy&quot;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="polymetric-polyrhythmic-sequences"><a class="markdownIt-Anchor" href="#polymetric-polyrhythmic-sequences"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#polymetric--polyrhythmic-sequences">Polymetric / polyrhythmic sequences</a></h2>
+<p>使用 <code>[ ]</code> 一次播放兩個 pattern：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[voodoo voodoo:3, arpy arpy:4 arpy:2]&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 <code>[]</code> ，兩邊的 pattern 都會被納入一個 cycle（也就是 polyrhythm）中。</li>
+<li>使用 <code>&#123;&#125;</code> ，由左邊的 pattern 決定節奏，然後疊加右邊的 pattern（polymeter）：</li>
+</ul>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;&#123;voodoo voodoo:3, arpy arpy:4 arpy:2&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+<details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div>Polymetric / polyrhythmic</div>
+<div class="callout-fold"></div></summary><div class="callout-body">
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=htbRx2jgF-E">POLYRHYTHMS vs POLYMETERS - YouTube</a></li>
+</ul>
+</div>
+</details><hr />
+<h2 id="euclidean-rhythmbjorklund"><a class="markdownIt-Anchor" href="#euclidean-rhythmbjorklund"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#euclidean-rhythmbjorklund">Euclidean rhythm/Bjorklund</a></h2>
+<p>在 sample 後面的括弧中給出兩個數字，tidal 會運用一些算法嘗試把第一個數字的「note」分配到第二個數字的 「step」中（詳見 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Euclidean_rhythm">Euclidean rhythm</a>）：</p>
+<p>也可以加入第三個參數，它可以「rotate（旋轉）」pattern，讓它從不同的 step 為起始點：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd(5,8,2)&quot;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="randomness"><a class="markdownIt-Anchor" href="#randomness"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#randomness">Randomness</a></h2>
+<p><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/randomness/">Randomness</a> 可以幫助我們快速地在 pattern 中加入一些特色和變化。有時候<code>random</code> 的作用有點像 <code>every</code>，但它不會在固定的次數循環發生，而是以隨機的狀態出現：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 50%</span></span><br><span class="line"><span class="title">d1</span> $ sometimes (# speed <span class="string">&quot;2&quot;</span>) $ sound <span class="string">&quot;drum*8&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 75%</span></span><br><span class="line"><span class="title">d1</span> $ often (# speed <span class="string">&quot;2&quot;</span>) $ sound <span class="string">&quot;drum*8&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>irand</code> 會產生一個隨機整數，最多到指定的數字：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;arpy(3,8)&quot;</span> # n (irand <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 0 ~ 1</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;tink*16&quot;</span> # gain rand</span><br></pre></td></tr></table></figure>
+<p>使用 <code>degradeBy</code> 來移除隨機 sample。數字表示 sample 播放的可能性：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ degradeBy <span class="number">0.2</span> $ sound <span class="string">&quot;tink*16&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- degradeBy 0.5 = degrade</span></span><br><span class="line"><span class="title">d1</span> $ degrade $ s <span class="string">&quot;bd*16&quot;</span></span><br></pre></td></tr></table></figure>
+<p>或者，可以使用 <code>?</code> 表示有 50％ 的機率會播放 sample：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd sn:2? bd sn?&quot;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#different-kind-of-patterns">Workshop | Tidal Cycles</a></li>
+</ul>
+<p></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/11/19/Tidal/Tidal-workshop-transforming-patterns/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一頁</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
+              2024-11-20 10:16:14
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分類"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/Tidalcycles/" title="Tidalcycles">
+                        <b>#</b> Tidalcycles
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2024/11/21/Tidal/Tidal-workshop-manipulating-samples/" target="_self">
+                <span>下一頁</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目錄</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cyclic-repetitive"><span class="toc-text"> Cyclic &#x2F; repetitive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#polymetric-polyrhythmic-sequences"><span class="toc-text"> Polymetric &#x2F; polyrhythmic sequences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#euclidean-rhythmbjorklund"><span class="toc-text"> Euclidean rhythm&#x2F;Bjorklund</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#randomness"><span class="toc-text"> Randomness</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
 
         
 <div class="footer">
@@ -467,12 +585,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + tags + '&url=' + http%3A%2F%2Fexample.com%2Ftags%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Tidal%20Workshop%20%7C%20Different%20kind%20of%20patterns + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F11%2F20%2FTidal%2FTidal-workshop-different-kind-of-patterns%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/tags/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/11/20/Tidal/Tidal-workshop-different-kind-of-patterns/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

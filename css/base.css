@@ -11,7 +11,7 @@ body {
   transition:
     color 400ms ease-in-out 0s,
     background-color 400ms ease-in-out 0s;
-  font-family: Consolas, "Liberation Mono", Menlo, Monaco, "Source Han Sans TC",
+  font-family: Consolas, "Liberation Mono", Menlo, Monaco, "Noto Sans TC",
     "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
@@ -31,12 +31,13 @@ h6 {
   color: var(--color-text-md-title);
 }
 
-/*  嵌入外觀 */
+/*  iframe 外觀 */
 .markdown-body iframe {
   margin: 40px auto;
   display: block;
 }
 
+/* 文章字體 */
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -46,7 +47,8 @@ h6 {
   line-height: 2;
   word-wrap: break-word;
   color: var(--color-text-md-content);
-  font-family: "Noto Serif TC";
+  /*font-family: "Noto Serif TC";*/
+  font-family: "Noto Sans TC";
 }
 
 @media (max-width: 768px) {

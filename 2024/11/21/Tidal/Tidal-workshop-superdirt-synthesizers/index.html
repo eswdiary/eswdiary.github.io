@@ -12,7 +12,7 @@
   
   <title>
     
-      Tag 
+      Tidal Workshop | Superdirt synthesizers 
       
       
       |
@@ -164,13 +164,6 @@
 
 
 
-  <!-- 标签页 url形式：https://yoursite/tags/ -->
-  <div class="container tag-index">
-    <div>
-      
-    </div>
-  </div>
-  
 
   
 
@@ -182,6 +175,123 @@
   
 
   
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Tidal Workshop | Superdirt synthesizers</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
+          2024-11-21 14:14:41
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分類"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/Tidalcycles/" title="Tidalcycles">
+                    <b>#</b> Tidalcycles
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>到目前為止，我們基本上只使用了 sample，但 SuperDirt（Tidal 的聲音引擎）也隨附許多 Supercollider 合成器，例如 <code>superpiano</code>、<code>supersaw</code> 或 <code>superfm</code> 等等。</p>
+<p>每種 synth 都有自己的功能和參數，但一般來說，使用它們的方式與 sample 非常相似：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ n <span class="string">&quot;0 4 7&quot;</span> # sound <span class="string">&quot;superpiano&quot;</span></span><br></pre></td></tr></table></figure>
+<p>也可以透過 MIDI 或 OSC 控制外部合成器。</p>
+<hr />
+<h2 id="difference-between-functions"><a class="markdownIt-Anchor" href="#difference-between-functions"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#difference-between-functions-n-and-note">Difference between functions <code>n</code> and <code>note</code></a></h2>
+<p>使用 synth 時，<code>n</code> 與 <code>note</code> 功能完全相同，下面的範例會播放 <code>C</code> 、<code>E</code>  (比 <code>C</code> 高 4 個半音) 及 <code>G</code> (比 C 高 7 個半音) 三個音</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ n <span class="string">&quot;0 4 7&quot;</span> # sound <span class="string">&quot;superpiano&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 相同</span></span><br><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;0 4 7&quot;</span> # sound <span class="string">&quot;superpiano&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用 sample 時，<code>n</code> 是指 sample 資料夾中的檔案順序，依字母順序（升序），並從 0 開始。這時使用 <code>note</code> 時，sample 的音調會被調高或調低（同時 sample 的時長也會受到影響）。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd*4&quot;</span> # n <span class="string">&quot;&lt;0 4&gt;&quot;</span> # note <span class="string">&quot;0 12 -7 -12&quot;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="playing-notes"><a class="markdownIt-Anchor" href="#playing-notes"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#playing-notes">Playing notes</a></h2>
+<p>本教學的大部分內容都是關於節奏，但 tidal 也提供了彈奏音符、音階、和弦和琶音的方法。</p>
+<p>可以根據西方樂理的命名方式來寫音符，使用字母表的前 7 個字母 （A 到 G）。例如以下範例是相同的：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;c a f e&quot;</span> # s <span class="string">&quot;supermandolin&quot;</span></span><br><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;0 9 5 4&quot;</span> # s <span class="string">&quot;supermandolin&quot;</span></span><br></pre></td></tr></table></figure>
+<p>在任何音符名稱後加上 s 或 f，分別表示升和降。此外，注意 0 和 c 預設指定的是第五個八度的 <code>C</code> ，如果要調整，可以在任何音符名後面加上八度數：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;c4 a3 f6 e5&quot;</span> # s <span class="string">&quot;supermandolin&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>|+</code> 或 <code>|-</code> 來移動八度。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;c a f e&quot;</span> # s <span class="string">&quot;superpiano&quot;</span> |- note <span class="number">24</span></span><br></pre></td></tr></table></figure>
+<p>要進一步了解如何彈奏音階、和弦及琶音，請參閱 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/harmony_melody">Harmony</a> 或如何 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/howtos/buildarpeggios">Build Arpeggios</a> 及 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/howtos/playchords">Play Chords</a>。</p>
+<hr />
+<h2 id="where-to-go-from-here"><a class="markdownIt-Anchor" href="#where-to-go-from-here"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#where-to-go-from-here">where to go from here</a></h2>
+<p>一些建議：</p>
+<ul>
+<li>Play（玩）、try（嘗試）、investigate（查閱）。這裡有大量資訊可供初學者參考。</li>
+<li>Alex McLean （Tidal Cycles 專案的發起者）本人的 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/course1">教學影片</a> 系列。</li>
+<li>加入論壇或官方 discord，尋求協助、幫助別人，並了解其他人如何使用 tidal cycles。</li>
+</ul>
+<details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div> </div>
+<div class="callout-fold"></div></summary><div class="callout-body">
+<p>也可以關注臺灣 C-LAB 等機構也會不定期釋出工作坊的活動消息。</p>
+</div>
+</details><h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#superdirt-synthesizers">Workshop | Tidal Cycles</a></li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/11/21/Tidal/Tidal-workshop-manipulating-samples/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一頁</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
+              2024-11-21 14:14:41
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分類"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/Tidalcycles/" title="Tidalcycles">
+                        <b>#</b> Tidalcycles
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目錄</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#difference-between-functions"><span class="toc-text"> Difference between functions n and note</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#playing-notes"><span class="toc-text"> Playing notes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#where-to-go-from-here"><span class="toc-text"> where to go from here</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
 
         
 <div class="footer">
@@ -467,12 +577,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + tags + '&url=' + http%3A%2F%2Fexample.com%2Ftags%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Tidal%20Workshop%20%7C%20Superdirt%20synthesizers + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F11%2F21%2FTidal%2FTidal-workshop-superdirt-synthesizers%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/tags/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/11/21/Tidal/Tidal-workshop-superdirt-synthesizers/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
