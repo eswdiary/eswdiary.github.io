@@ -29,9 +29,9 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
       <!-- 添加 Noto Serif TC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet"> -->
   
       <!-- 添加 Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -182,7 +182,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-          2024-11-20 10:16:27
+          2024-11-22 15:45:37
         </span>
         
               <span class="post-categories">
@@ -198,12 +198,15 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="開始"><a class="markdownIt-Anchor" href="#開始"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#getting-started">開始</a></h2>
-<p>一切安裝完成後，每次啟動時按照以下步驟：</p>
+        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>開始進入 Tidalcycles 的世界加加總總也快一年多，依舊覺得這種形式節奏處理方式與產生的結果比起直接使用 DAW 來說還是有其特色（當然不只是純文字處理部份啦），有感於中文資源稀缺，最近重新拾起的過程中也順道試著翻譯了文檔中工作坊的內容，並補充了一些注解與範例，部份 AI 協助與人工檢查（在下），音樂方面的詞彙翻譯後容易產生誤解的部份便保持原文呈現，僅求文意通達、語句通暢，文中標題與資料來源皆有附上文檔來源，非本人創作，也歡迎對照參考，如有疏漏也請不吝告知，感謝～</p>
+<hr />
+<h2 id="getting-started"><a class="markdownIt-Anchor" href="#getting-started"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#getting-started">Getting started</a></h2>
+<p>一切安裝<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>完成後，每次啟動時按照以下步驟：</p>
 <ol>
 <li>啟動 <code>SuperDirt</code></li>
 </ol>
-<p>執行 SuperCollider IDE 時，<code>SuperDirt</code> 應該會自動啟動 [^1]。如果沒有，請在 SuperCollider IDE 中輸入「<code>SuperDirt.start</code>」， 並以 <code>Ctrl＋Enter</code> 執行。</p>
+<p>執行 SuperCollider IDE 時，<code>SuperDirt</code> 應該會自動啟動。如果沒有，請在 SuperCollider IDE 中輸入「<code>SuperDirt.start</code>」， 並以 <code>Ctrl＋Enter</code> 執行。</p>
 <ol start="2">
 <li>啟動 Tidal Cycles</li>
 </ol>
@@ -214,25 +217,50 @@
 </div>
 </details><details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#notes-in-haskell">Haskell 的註解</a>  </div>
 <div class="callout-fold"></div></summary><div class="callout-body">
-<p>Tidal 主要使用 Haskell 語言，行首使用 <code>--</code> 號來表示註解（Comment）。<br />
-註解是會被忽略執行的程式碼。可以使用註解在您的程式碼中加入各種方便自行解讀的註解，也可以用來忽略特定的行或節奏</p>
+<p>Tidal 主要使用 Haskell 語言，行首使用 <code>--</code> 號來表示<strong>註解</strong>（Comment）。<br />
+註解是會被忽略執行的程式碼。可以使用註解在程式碼中加入各種方便自行解讀的……呃，註解，也可以用來忽略特定的行或 pattern。</p>
 </div>
-</details><p></p>
-<h2 id="-swig0-"><a class="markdownIt-Anchor" href="#-swig0-"></a> <a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/" title="Tidal Workshop | Basic patterns">Tidal Workshop | Basic patterns</a></h2>
-<hr />
-<h2 id="-swig1-"><a class="markdownIt-Anchor" href="#-swig1-"></a> <a href="/2024/11/18/Tidal/Tidal-workshop-effects/" title="Tidal Workshop | Effects">Tidal Workshop | Effects</a></h2>
+</details><hr />
+<p>以下按照原文順序排列：</p>
+<ul>
+<li>
+<a href="/2024/11/17/Tidal/Tidal-workshop-basic-patterns/" title="Tidal Workshop | Basic patterns">Tidal Workshop | Basic patterns</a>
+</li>
+<li>
+<a href="/2024/11/18/Tidal/Tidal-workshop-effects/" title="Tidal Workshop | Effects">Tidal Workshop | Effects</a>
+</li>
+<li>
+<a href="/2024/11/19/Tidal/Tidal-workshop-transforming-patterns/" title="Tidal Workshop | Transforming patterns">Tidal Workshop | Transforming patterns</a>
+</li>
+<li>
+<a href="/2024/11/20/Tidal/Tidal-workshop-different-kind-of-patterns/" title="Tidal Workshop | Different kind of patterns">Tidal Workshop | Different kind of patterns</a>
+</li>
+<li>
+<a href="/2024/11/21/Tidal/Tidal-workshop-manipulating-samples/" title="Tidal Workshop | Manipulating samples">Tidal Workshop | Manipulating samples</a>
+</li>
+<li>
+<a href="/2024/11/21/Tidal/Tidal-workshop-superdirt-synthesizers/" title="Tidal Workshop | Superdirt synthesizers">Tidal Workshop | Superdirt synthesizers</a>
+</li>
+</ul>
 <hr />
 <h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#getting-started">Workshop | Tidal Cycles</a></li>
 </ul>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>可依照不同系統參見<a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/getting-started/linux_install">官方文檔說明</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2024/11/04/EP-%E9%9D%88%E6%84%9F-I/" target="_self">
+              <a href="/2024/11/04/Portfolio/EP-inspiration-I/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一頁</span>
               </a>
@@ -241,7 +269,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-              2024-11-20 10:16:27
+              2024-11-22 15:45:37
             </span>
             
                   <span class="post-categories">
@@ -275,7 +303,7 @@
     <div class="title">目錄</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B"><span class="toc-text"> 開始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-swig0-"><span class="toc-text"> Tidal Workshop | Basic patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-swig1-"><span class="toc-text"> Tidal Workshop | Effects</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getting-started"><span class="toc-text"> Getting started</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
       
     </div>
   </div>

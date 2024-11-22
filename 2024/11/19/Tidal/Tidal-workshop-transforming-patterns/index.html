@@ -29,9 +29,9 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
       <!-- 添加 Noto Serif TC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet"> -->
   
       <!-- 添加 Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -182,7 +182,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-          2024-11-20 10:14:01
+          2024-11-22 11:52:13
         </span>
         
               <span class="post-categories">
@@ -199,12 +199,12 @@
       </div>
       <div class="markdown-body">
         <h2 id="slow"><a class="markdownIt-Anchor" href="#slow"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#slow-fast-and-hurry"><code>Slow</code>, <code>fast</code> and <code>hurry</code></a></h2>
-<p>我們可以利用 transforming 技巧產生更複雜的節奏。使用像 <code>slow</code> 或 <code>fast</code> ，你可以開始使 pattern 超越（或壓縮）一個 cycle：</p>
+<p>可以利用 transforming 技巧產生更複雜的節奏。使用像 <code>slow</code> 或 <code>fast</code> ，現在可以開始使 pattern 超越（或壓縮）一個 cycle：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ slow <span class="number">2</span> $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title">d1</span> $ fast <span class="number">2</span> $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- `hurry` 與 `fast` 相似，但同時也會套用音調變化：</span></span><br><span class="line"><span class="title">d1</span> $ hurry <span class="number">2</span> $ sound <span class="string">&quot;arpy arpy arpy:1 arpy:2&quot;</span></span><br></pre></td></tr></table></figure>
 <p>參考 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/time/">Time</a> 章節了解更多變化。</p>
 <hr />
 <h2 id="重組節奏"><a class="markdownIt-Anchor" href="#重組節奏"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#reorganise-patterns">重組節奏</a></h2>
-<p>Tidal Cycles 提供了許多功能以不同方式改變節奏，本節將擇其中一些介紹，更多細節和功能可以參考以下章節 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/alteration">alteration</a>, <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/accumulation">accumulation</a> and <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/conditions">conditions</a>.</p>
+<p>Tidal Cycles 提供了許多功能以不同方式改變節奏，本節將擇其中一些介紹，更多細節和功能可以參考以下章節 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/alteration">Alteration</a>、<a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/accumulation">Accumulation</a> 和 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/conditions">Conditions</a>.</p>
 <p>使用 <code>rev</code> 來反轉節奏：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ rev $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br></pre></td></tr></table></figure>
 <p>或者用 <code>palindrome</code> 正向播放再倒回來：</p>
@@ -216,14 +216,14 @@
 舉例來說：<code>iter 4</code> 表示以 pattern 的 <strong>1/4 為單位</strong> 每 cycle 向左移動，如果剛好 pattern 中有 4 個 sample，則為一次 cycle 向左移動一格。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ iter <span class="number">4</span> $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br></pre></td></tr></table></figure>
 </div>
-</details><p>使用 <code>every</code> 在不同的 cycle 中安排 transforming 或 effects。以下範例會以每四個 cycle 發生一次 <code>fast 2</code> 的方式播放：</p>
+</details><p>使用 <code>every</code> 在不同的 cycle 中安排 transformations 或 effects。以下範例會以每四個 cycle 發生一次 <code>fast 2</code> 的方式播放：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ every <span class="number">4</span> (fast <span class="number">2</span>) $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 或是也可以加入 effect</span></span><br><span class="line"><span class="title">d1</span> $ every <span class="number">4</span> (# vowel <span class="string">&quot;a o&quot;</span>) $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br></pre></td></tr></table></figure>
 <p><code>jux</code>（<code>juxtapose</code> 的縮寫）可讓節奏的變形或效果，在另一邊的聲道播放（原始的 pattern 則在另一邊）。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ jux (rev) $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br><span class="line"><span class="title">d1</span> $ jux (hurry <span class="number">2</span>) $ sound <span class="string">&quot;arpy arpy arpy:1 arpy:2&quot;</span></span><br></pre></td></tr></table></figure>
-<details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div>試著寫了一些範例：</div>
+<details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div>更多範例</div>
 <div class="callout-fold"></div></summary><div class="callout-body">
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ jux (iter <span class="number">3</span>) $ every <span class="number">4</span> (hurry <span class="number">3</span>)$ n <span class="string">&quot;0 1 9*3 [0 3]&quot;</span> # sound <span class="string">&quot;arpy&quot;</span></span><br></pre></td></tr></table></figure>
-<p>至此，再回去複習一下前面的 <a href="../Inbox/Tidal%20-%20Workshop%E2%80%94%E2%80%94Effects.md">Effects</a> 章節，就有很多花樣可以玩啦～</p>
+<p>至此，再回去複習一下前面的 effects 章節，就有很多花樣可以玩啦😎～</p>
 </div>
 </details><p><code>chunk</code> 每次都會在 pattern 的不同部分套用變形或效果。舉例來說，</p>
 <details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div> </div>
@@ -237,15 +237,19 @@
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ jux (rev . (slow <span class="number">1.5</span>)) $ sound <span class="string">&quot;arpy arpy:1 arpy:2 arpy:3&quot;</span></span><br></pre></td></tr></table></figure>
 <p>（幾乎）所有東西都是「pattern」，也可以將這些變形套用在效果上：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;jvbass [jvbass jvbass] jvbass ~&quot;</span> # note <span class="string">&quot;1 [3 5] 7&quot;</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;jvbass [jvbass jvbass] jvbass ~&quot;</span> # iter <span class="number">3</span> (note <span class="string">&quot;1 [3 5] 7&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>可以使用 <code>fast</code> 或 <code>slow</code>、<code>range</code> 結合 <code>sine</code> 或 <code>saw</code> 等振盪器，在任何參數上建立 LFO：</p>
+<p>可以使用 <code>fast</code> 或 <code>slow</code>、<code>range</code> 結合 <code>sine</code> 或 <code>saw</code> 等振盪器（<a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/oscillators">oscillators</a>），在任何參數上建立 LFO：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ s <span class="string">&quot;bd*8&quot;</span> # pan (slow <span class="number">4</span> $ sine)</span><br><span class="line"><span class="title">d1</span> $ s <span class="string">&quot;moog*16&quot;</span> # n <span class="string">&quot;&lt;0 1 2&gt;&quot;</span> # legato <span class="number">1</span> # cutoff (range <span class="number">200</span> <span class="number">2400</span> $ saw) # resonance <span class="number">0.2</span></span><br></pre></td></tr></table></figure>
-<p>預設情況下，<code>sine</code>、<code>cosine</code> 或 <code>saw</code> 等 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/oscillators/">oscillators</a> 會提供 <code>0</code> 至 <code>1</code> 的數值（Unipolar），這對某些參數（例如 <code>pan</code>）來說沒問題，但如果有其他情況可以使用 <code>range</code> 來將這些數值縮放到指定範圍。</p>
+<p>預設情況下，<code>sine</code>、<code>cosine</code> 或 <code>saw</code> 等 oscillators 會提供 <code>0</code> 至 <code>1</code> 的數值（unipolar），這對某些參數（例如 <code>pan</code>）來說沒什麼問題，但如果有其他應用情況可以使用 <code>range</code> 來將這些數值縮放到指定範圍。</p>
 <p></p>
 <details class="custom-callout note" open><summary class="callout-title"><div class="callout-icon"></div><div>延伸閱讀</div>
 <div class="callout-fold"></div></summary><div class="callout-body">
 <p><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/control_busses/">Control Busses | Tidal Cycles</a></p>
 </div>
 </details><hr />
+<a href="/2024/11/16/Tidal/Tidal-workshop-notes-catalog/" title="Tidal Workshop | 筆記目錄">返回目錄</a>
+<p>上一篇：<a href="/2024/11/18/Tidal/Tidal-workshop-effects/" title="Tidal Workshop | Effects">Tidal Workshop | Effects</a><br />
+下一篇：<a href="/2024/11/20/Tidal/Tidal-workshop-different-kind-of-patterns/" title="Tidal Workshop | Different kind of patterns">Tidal Workshop | Different kind of patterns</a></p>
+<hr />
 <h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#distortion-reverb-delay-and-filters">Workshop | Tidal Cycles</a></li>
@@ -266,7 +270,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-              2024-11-20 10:14:01
+              2024-11-22 11:52:13
             </span>
             
                   <span class="post-categories">

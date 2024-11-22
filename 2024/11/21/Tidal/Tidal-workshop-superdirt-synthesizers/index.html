@@ -29,9 +29,9 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
       <!-- 添加 Noto Serif TC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet"> -->
   
       <!-- 添加 Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -182,7 +182,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-          2024-11-21 14:14:41
+          2024-11-22 15:40:03
         </span>
         
               <span class="post-categories">
@@ -204,33 +204,36 @@
 <p>也可以透過 MIDI 或 OSC 控制外部合成器。</p>
 <hr />
 <h2 id="difference-between-functions"><a class="markdownIt-Anchor" href="#difference-between-functions"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#difference-between-functions-n-and-note">Difference between functions <code>n</code> and <code>note</code></a></h2>
-<p>使用 synth 時，<code>n</code> 與 <code>note</code> 功能完全相同，下面的範例會播放 <code>C</code> 、<code>E</code>  (比 <code>C</code> 高 4 個半音) 及 <code>G</code> (比 C 高 7 個半音) 三個音</p>
+<p>使用 synth 時，<code>n</code> 與 <code>note</code> 功能完全相同，下面的範例會播放 <code>C</code> 、<code>E</code>  (比 <code>C</code> 高 4 個半音) 及 <code>G</code> (比 C 高 7 個半音) 三個音：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ n <span class="string">&quot;0 4 7&quot;</span> # sound <span class="string">&quot;superpiano&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 相同</span></span><br><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;0 4 7&quot;</span> # sound <span class="string">&quot;superpiano&quot;</span></span><br></pre></td></tr></table></figure>
 <p>使用 sample 時，<code>n</code> 是指 sample 資料夾中的檔案順序，依字母順序（升序），並從 0 開始。這時使用 <code>note</code> 時，sample 的音調會被調高或調低（同時 sample 的時長也會受到影響）。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd*4&quot;</span> # n <span class="string">&quot;&lt;0 4&gt;&quot;</span> # note <span class="string">&quot;0 12 -7 -12&quot;</span></span><br></pre></td></tr></table></figure>
 <hr />
 <h2 id="playing-notes"><a class="markdownIt-Anchor" href="#playing-notes"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#playing-notes">Playing notes</a></h2>
-<p>本教學的大部分內容都是關於節奏，但 tidal 也提供了彈奏音符、音階、和弦和琶音的方法。</p>
-<p>可以根據西方樂理的命名方式來寫音符，使用字母表的前 7 個字母 （A 到 G）。例如以下範例是相同的：</p>
+<p>目前為止的教學大部分內容都是關於節奏的處理，但其實 tidal 也提供了彈奏音符、音階、和弦和琶音的方法。</p>
+<p>可以根據西方樂理的命名方式來寫音符，使用字母表的前 7 個字母 （A 到 G）：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;c a f e&quot;</span> # s <span class="string">&quot;supermandolin&quot;</span></span><br><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;0 9 5 4&quot;</span> # s <span class="string">&quot;supermandolin&quot;</span></span><br></pre></td></tr></table></figure>
-<p>在任何音符名稱後加上 s 或 f，分別表示升和降。此外，注意 0 和 c 預設指定的是第五個八度的 <code>C</code> ，如果要調整，可以在任何音符名後面加上八度數：</p>
+<p>在任何音符名稱後加上 <code>s</code> 或 <code>f</code>，分別表示升和降。此外，注意 <code>0</code> 和 <code>c</code> 預設指定的是第五個八度的 <code>C</code> ，如果要調整，可以在任何音符名後面加上八度數：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;c4 a3 f6 e5&quot;</span> # s <span class="string">&quot;supermandolin&quot;</span></span><br></pre></td></tr></table></figure>
 <p>使用 <code>|+</code> 或 <code>|-</code> 來移動八度。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ note <span class="string">&quot;c a f e&quot;</span> # s <span class="string">&quot;superpiano&quot;</span> |- note <span class="number">24</span></span><br></pre></td></tr></table></figure>
-<p>要進一步了解如何彈奏音階、和弦及琶音，請參閱 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/harmony_melody">Harmony</a> 或如何 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/howtos/buildarpeggios">Build Arpeggios</a> 及 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/howtos/playchords">Play Chords</a>。</p>
+<p>要進一步了解如何彈奏音階、和弦及琶音，請參閱 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/harmony_melody">Harmony</a> 或 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/howtos/buildarpeggios">Build Arpeggios</a> 及 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/howtos/playchords">Play Chords</a> 等章節。</p>
 <hr />
-<h2 id="where-to-go-from-here"><a class="markdownIt-Anchor" href="#where-to-go-from-here"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#where-to-go-from-here">where to go from here</a></h2>
-<p>一些建議：</p>
+<h2 id="下一步"><a class="markdownIt-Anchor" href="#下一步"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#where-to-go-from-here">下一步……</a></h2>
 <ul>
-<li>Play（玩）、try（嘗試）、investigate（查閱）。這裡有大量資訊可供初學者參考。</li>
-<li>Alex McLean （Tidal Cycles 專案的發起者）本人的 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/course1">教學影片</a> 系列。</li>
+<li>Play（玩）、try（嘗試）、investigate（查閱）。官網有大量資訊可供初學者參考。</li>
+<li>參閱 Alex McLean （Tidal Cycles 專案的發起者）本人的 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/course1">教學影片</a> 系列。</li>
 <li>加入論壇或官方 discord，尋求協助、幫助別人，並了解其他人如何使用 tidal cycles。</li>
 </ul>
 <details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div> </div>
 <div class="callout-fold"></div></summary><div class="callout-body">
 <p>也可以關注臺灣 C-LAB 等機構也會不定期釋出工作坊的活動消息。</p>
 </div>
-</details><h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+</details><hr />
+<a href="/2024/11/16/Tidal/Tidal-workshop-notes-catalog/" title="Tidal Workshop | 筆記目錄">返回目錄</a>
+<p>上一篇：<a href="/2024/11/21/Tidal/Tidal-workshop-manipulating-samples/" title="Tidal Workshop | Manipulating samples">Tidal Workshop | Manipulating samples</a></p>
+<hr />
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop#superdirt-synthesizers">Workshop | Tidal Cycles</a></li>
 </ul>
@@ -249,7 +252,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-              2024-11-21 14:14:41
+              2024-11-22 15:40:03
             </span>
             
                   <span class="post-categories">
@@ -266,6 +269,11 @@
           </div>
           <div class="post-foot-prev">
             
+              <a href="/2024/11/22/Portfolio/EP-underline/" target="_self">
+                <span>下一頁</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -278,7 +286,7 @@
     <div class="title">目錄</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#difference-between-functions"><span class="toc-text"> Difference between functions n and note</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#playing-notes"><span class="toc-text"> Playing notes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#where-to-go-from-here"><span class="toc-text"> where to go from here</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#difference-between-functions"><span class="toc-text"> Difference between functions n and note</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#playing-notes"><span class="toc-text"> Playing notes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="toc-text"> 下一步……</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#references"><span class="toc-text"> References</span></a>
       
     </div>
   </div>

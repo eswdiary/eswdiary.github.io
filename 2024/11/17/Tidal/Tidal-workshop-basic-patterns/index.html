@@ -29,9 +29,9 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
       <!-- 添加 Noto Serif TC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet"> -->
   
       <!-- 添加 Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -182,7 +182,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-          2024-11-20 10:18:34
+          2024-11-22 11:34:02
         </span>
         
       </div>
@@ -205,13 +205,13 @@
 <p>可以在 <code>Dirt-Samples</code> 資料夾中查看 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/configuration/AudioSamples/default_library/">預設庫</a> 中還有哪些其他 sample 可以使用，該資料夾可以在 SuperCollider IDE 中： <code>File &gt; Open user support directory &gt; downloaded-quarks &gt; Dirt-Samples</code> 來找到它。</p>
 <p>另外，也可以新增 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/configuration/AudioSamples/audiosamples/">自訂 samples</a>。</p>
 <hr />
-<p>製作一個 sequence（序列）：</p>
+<p>產生一個 sequence（序列）：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd hh sn hh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd bd hh bd sn bd hh bd&quot;</span></span><br><span class="line"><span class="comment">-- 速度越來越快……</span></span><br></pre></td></tr></table></figure>
 <p>這是因為 tidal 處理時間的方式與一般直覺上的想法不太一樣。</p>
 <p>Tidal 中有一個全局的 cycle（週期，類似音樂術語中的 「小節」）在後臺運行，而 tidal 的工作是在一個 cycle 內播放 <code>&quot; &quot;</code> 中的所有聲音，除非我們告訴它不要這樣做（後面會再提到）。</p>
-<p>也就是說，tidal 會在一個 cycle 內平均拉開聲音的間距，這表示我們可以很輕易的達成 polyrhythm（稍後會說明）。我們可以使用 <code>setcps</code> 來改變 cycle 的長度 （cycles per second），概念上有點像是音樂中的 bpm （beats per minute）。</p>
+<p>也就是說，tidal 會在一個 cycle 內平均拉開聲音的間距，這表示我們可以很輕易的達成 polyrhythm（稍後會說明）。可以使用 <code>setcps</code> 來改變 cycle 的長度 （cycles per second），概念上有點像是音樂中的 bpm （beats per minute）。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">setcps</span> <span class="number">0.6</span></span><br></pre></td></tr></table></figure>
-<p>可以使用 <code>d1</code>、<code>d2</code>、<code>d3</code>…<code>d9</code> 來同時播放多個 sequence（就像是不同 DAW 中的不同 track）：</p>
+<p>可以使用 <code>d1</code>、<code>d2</code>、<code>d3</code>…<code>d9</code> 來同時播放多個 sequence（就像 DAW 中的 track）：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d2</span> $ sound <span class="string">&quot;sn sn:2 sn bd sn&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title">hush</span></span><br></pre></td></tr></table></figure>
 <p>可以用 <code>hush</code>（或按 <code>Ctrl＋.</code>）停止所有正在運行的 pattern，或將 <code>cps</code> 改成負數（記得要將負數放在括弧中）。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">setcps</span> (-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
@@ -219,13 +219,13 @@
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">d1</span> $ s <span class="string">&quot;bd sn&quot;</span></span><br><span class="line"><span class="title">d2</span> $ s <span class="string">&quot;cp bd:2 sn:1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title">solo</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="title">unsolo</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="title">mute</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="title">unmute</span> <span class="number">2</span> </span><br><span class="line"><span class="comment">-- unmuteAll</span></span><br></pre></td></tr></table></figure>
 <details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div>Tip</div>
 <div class="callout-fold"></div></summary><div class="callout-body">
-<p>如果使用 pulsar 的 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/getting-started/editor/Pulsar">tidal plugin</a>，預設了一些常用操作的快捷鍵，如： <code>Ctrl＋1</code> 切換第一個 channel 的靜音等，還有帥帥的狀態圖示：<br />
+<p>如果使用 pulsar 的 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/getting-started/editor/Pulsar">tidal package</a>，預設了一些常用操作的快捷鍵，如： <code>Ctrl＋1</code> 切換第一個 channel 的靜音等，還有帥帥的狀態圖示：<br />
 <img src="d3e4ea2241a1d5b8b1b6a37e6bdb3445.png" alt="" /></p>
 </div>
 </details><h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
 <h2 id="更多變化"><a class="markdownIt-Anchor" href="#更多變化"></a> <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#more-variety">更多變化</a></h2>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 休止</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd ~ sn:3 bd sn:5 ~ bd:2 sn:2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Subdivision（向下細分）</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd [bd cp] bd bd&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 多層的 subdivision</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[[bd bd] bd sn:5] [bd sn:3]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Subdivision 2 倍</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd sd*2&quot;</span></span><br><span class="line"><span class="comment">-- d1 $ s &quot;bd [sd sd]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Subdivision 1/2 倍，也就是增長 2 倍，以 cycle 為單位</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd sn/2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用 &lt;&gt; 跨 cycle 安排節奏</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd &lt;sd cp arpy&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-<p>我們在這些範例中使用的語法稱為 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/mini_notation/">mini-notation</a>，可以用在 Tidal 中許多地方，不只有 <code>sound</code> 。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- ~ 表示休止</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd ~ sn:3 bd sn:5 ~ bd:2 sn:2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Subdivision / subsequence（向下細分）</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd [bd cp] bd bd&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 多層的 subdivision</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[[bd bd] bd sn:5] [bd sn:3]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 細分 2 倍</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd sd*2&quot;</span></span><br><span class="line"><span class="comment">-- 等於：</span></span><br><span class="line"><span class="comment">-- d1 $ s &quot;bd [sd sd]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 反過來，也就是增長 2 倍</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd sn/2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用 &lt;&gt; 跨 cycle 安排節奏</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd &lt;sd cp arpy&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>我們在這些範例中使用的語法稱為 <a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/reference/mini_notation/">mini-notation</a>，可以用在 tidal 中許多地方，不只有 <code>sound</code> 。</p>
 <p>常見的 mini-notation 符號像是： <code>|</code> 來選擇隨機選項、 <code>,</code> 來同時播放兩個樣式，以及 <code>!</code> 複製前一個節奏等。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 從兩個 sample 中隨機選擇一個：</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[bd:0|bd:1]&quot;</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[sn|cp]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 同時播放 sn 和 cp：</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;[sn,cp]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 播放三個 bd 和一個 sn：</span></span><br><span class="line"><span class="title">d1</span> $ sound <span class="string">&quot;bd!3 sn&quot;</span></span><br></pre></td></tr></table></figure>
 <details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div>Tip</div>
@@ -237,12 +237,12 @@
 </ul>
 </div>
 </details><hr />
+<a href="/2024/11/16/Tidal/Tidal-workshop-notes-catalog/" title="Tidal Workshop | 筆記目錄">返回目錄</a>
 <p>下一篇：<a href="/2024/11/18/Tidal/Tidal-workshop-effects/" title="Tidal Workshop | Effects">Tidal Workshop | Effects</a></p>
 <hr />
 <h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#basic-patterns">Workshop | Tidal Cycles</a><br />
-/home/ewd/Documents/HexoBlog/source/_posts/Tidal-Workshop——<a target="_blank" rel="noopener" href="http://Basic-patterns.md">Basic-patterns.md</a></li>
+<li><a target="_blank" rel="noopener" href="https://tidalcycles.org/docs/patternlib/tutorials/workshop/#basic-patterns">Workshop | Tidal Cycles</a></li>
 </ul>
 
       </div>
@@ -259,7 +259,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新時間"></i>
-              2024-11-20 10:18:34
+              2024-11-22 11:34:02
             </span>
             
           </div>
