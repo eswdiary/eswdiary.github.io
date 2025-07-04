@@ -1,6 +1,5 @@
 export type CollectionName = "blog" | "projects" | "talks";
 
-
 export type GlobalSite = {
   title: string;
   description: string;
@@ -12,15 +11,17 @@ export type GlobalSite = {
   };
 };
 
+// Global metadata
+// --------------------------------
 export const GLOBAL: GlobalSite = {
-  title: "Astro Milidev",
-  description: "a minimalistic blog+portfolio Astro theme",
-  author: "John Doe",
-  authorPhotoSrc: "/johndoe.png",
-  logo: {
-    darkThemeSrc: "/logo/logo_dark.png",
-    lightThemeSrc: "/logo/logo_light.png",
-  }
+  title: "ewd",
+  description: "Experimental and more",
+  author: "ewd",
+  authorPhotoSrc: "/ewd_black.jpg",
+  // logo: {
+  //   darkThemeSrc: "/logo/logo_dark.png",
+  //   lightThemeSrc: "/logo/logo_light.png",
+  // }
 };
 
 
@@ -34,12 +35,16 @@ type HomeSite =  {
   talkEntries?: number;
 }
 
+// Home site entries
+// --------------------------------
 export const HOME: HomeSite = {
   blogEntries: 5,
   projectEntries: 3,
   talkEntries: 3,
 };
 
+// Collections site
+// --------------------------------
 type BlogSite = CollectionSite & {
   license: {
     name: string;
@@ -67,6 +72,8 @@ export const TAGS: CollectionSite = {
   pageSize: 10,
 };
 
+// Contact details
+// --------------------------------
 type ContactInfo = {
   type: string;
   href: string;
@@ -77,21 +84,23 @@ type ContactSite = ContactInfo[]
 
 export const CONTACT: ContactSite = [
   {
-    type: "Email",
-    href: "mailto:email@example.com",
-    displayAs: "email@example.com",
+    type: "Soundcloud",
+    href: "#",
+    displayAs: "sc",
+  },
+  {
+    type: "Instagram",
+    href: "",
+    displayAs: "ig",
   },
   {
     type: "X",
     href: "https://x.com/BillGates",
-    displayAs: "@BillGates on X",
+    displayAs: "x",
   },
   {
     type: "GitHub",
     href: "https://github.com/dotnet",
-  },
-  {
-    type: "LinkedIn",
-    href: "https://www.linkedin.com/in/williamhgates/",
+    displayAs: "github"
   },
 ];
