@@ -1,5 +1,7 @@
 export type CollectionName = "blog" | "projects" | "talks";
 
+// Global metadata
+// --------------------------------
 export type GlobalSite = {
   title: string;
   description: string;
@@ -11,8 +13,6 @@ export type GlobalSite = {
   };
 };
 
-// Global metadata
-// --------------------------------
 export const GLOBAL: GlobalSite = {
   title: "ewd",
   description: "Experimental and more",
@@ -97,10 +97,5 @@ export const CONTACT: ContactSite = [
     type: "X",
     href: "https://x.com/BillGates",
     displayAs: "x",
-  },
-  {
-    type: "GitHub",
-    href: "https://github.com/dotnet",
-    displayAs: "github"
   },
 ];

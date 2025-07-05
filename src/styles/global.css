@@ -12,6 +12,11 @@ html.dark {
   color-scheme: dark;
 }
 
+/* H1 置中 */
+h1 {
+  text-align: center;
+}
+
 html,
 body {
   @apply size-full;
