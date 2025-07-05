@@ -5,6 +5,10 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import pagefind from "astro-pagefind";
 
+// 數學公式渲染
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://eswdiary.github.io",
@@ -14,5 +18,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "css-variables",
     },
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
   },
 });

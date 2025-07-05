@@ -46,6 +46,7 @@ footer {
   }
 }
 
+/* 文章 */
 article {
   @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
@@ -54,8 +55,8 @@ article {
   @apply prose-headings:text-black prose-headings:dark:text-white/75;
 }
 
-/* 標題加上 # 字號 */
 @layer utilities {
+  /* 標題加上 # 字號 */
   article h2::before {
     content: "## ";
     @apply mr-2 select-none text-neutral-400 dark:text-yellow;
@@ -80,10 +81,8 @@ article {
     content: "####### ";
     @apply mr-2 select-none text-neutral-400 dark:text-gray;
   }
-}
 
-/* 標題的 a 標籤 */
-@layer utilities {
+  /* 標題的 a 標籤 */
   article a {
     @apply font-sans text-current underline underline-offset-[3px];
     @apply decoration-black/30 dark:decoration-white/30;
@@ -92,6 +91,24 @@ article {
   article a:hover j {
     @apply text-black dark:text-white;
     @apply decoration-black/50 dark:decoration-white/50;
+  }
+
+  article math {
+    @apply text-lg;
+    @apply my-6;
+    @apply text-black/75 dark:text-white/75;
+  }
+
+  article iframe {
+    @apply mx-auto my-4 rounded-lg shadow-md;
+  }
+
+  article blockquote {
+    @apply text-black/75 dark:text-gray/75;
+  }
+
+  article strong {
+    @apply text-blue;
   }
 }
 
