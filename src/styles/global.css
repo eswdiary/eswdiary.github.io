@@ -12,11 +12,6 @@ html.dark {
   color-scheme: dark;
 }
 
-/* H1 置中 */
-h1 {
-  text-align: center;
-}
-
 html,
 body {
   @apply size-full;
@@ -43,19 +38,58 @@ footer {
   @apply py-6 text-sm;
 }
 
+/* H1 設置 */
+@layer utilities {
+  body h1 {
+    @apply text-center;
+    @apply font-heading;
+  }
+}
+
 article {
   @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
+  /* 標題僅使用 Noto Sans */
+  @apply prose-headings:font-heading;
+  @apply prose-headings:text-black prose-headings:dark:text-white/75;
 }
 
+/* 標題加上 # 字號 */
+@layer utilities {
+  article h2::before {
+    content: "## ";
+    @apply mr-2 select-none text-neutral-400 dark:text-yellow;
+  }
+
+  article h3::before {
+    content: "### ";
+    @apply mr-2 select-none text-neutral-400 dark:text-green;
+  }
+
+  article h4::before {
+    content: "#### ";
+    @apply mr-2 select-none text-neutral-400 dark:text-purple;
+  }
+
+  article h5::before {
+    content: "##### ";
+    @apply mr-2 select-none text-neutral-400 dark:text-blue;
+  }
+
+  article h6::before {
+    content: "####### ";
+    @apply mr-2 select-none text-neutral-400 dark:text-gray;
+  }
+}
+
+/* 標題的 a 標籤 */
 @layer utilities {
   article a {
     @apply font-sans text-current underline underline-offset-[3px];
     @apply decoration-black/30 dark:decoration-white/30;
     @apply transition-colors duration-300 ease-in-out;
   }
-  article a:hover {
+  article a:hover j {
     @apply text-black dark:text-white;
     @apply decoration-black/50 dark:decoration-white/50;
   }

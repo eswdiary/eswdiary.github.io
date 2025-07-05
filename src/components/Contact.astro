@@ -2,28 +2,27 @@
 import { CONTACT } from "@consts";
 
 type Props = {
-    small?: boolean;
+  small?: boolean;
 };
 
 const { small } = Astro.props;
 ---
 
 <p class="mb-0" style={small ? "font-size: 0.875rem" : ""}>
-    {
-        CONTACT.map((c, index) => (
-            <>
-                <a href={c.href} target="_blank">
-                    {c.displayAs ?? c.type}
-                </a>
-                <span class="mx-2">{index < CONTACT.length - 1 && " | "}</span>
-            </>
-        ))
-    }
+  {
+    CONTACT.map((c, index) => (
+        <a href={c.href} target="_blank" class="decoration-transparent dark:decoration-transparent">
+          {/* {c.displayAs ?? c.type} */}
+          <img src={"/icon/" + c.type + "-brands.svg"} alt={c.type + "-icon"} class="inline h-5 w-5 invert"/>
+        </a>
+        <span class="mx-2">{index < CONTACT.length - 1 && " | "}</span>
+    ))
+  }
 </p>
 
 <!-- 連結欄置中 -->
 <style>
-    p {
-        text-align: center;
-    }
+  p {
+    text-align: center;
+  }
 </style>

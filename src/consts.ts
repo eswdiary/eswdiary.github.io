@@ -24,16 +24,15 @@ export const GLOBAL: GlobalSite = {
   // }
 };
 
-
-type CollectionSite =  {
+type CollectionSite = {
   pageSize: number;
 };
 
-type HomeSite =  {
+type HomeSite = {
   blogEntries?: number;
   projectEntries?: number;
   talkEntries?: number;
-}
+};
 
 // Home site entries
 // --------------------------------
@@ -49,7 +48,7 @@ type BlogSite = CollectionSite & {
   license: {
     name: string;
     href: string;
-  }
+  };
 };
 
 export const BLOG: BlogSite = {
@@ -78,23 +77,24 @@ type ContactInfo = {
   type: string;
   href: string;
   displayAs?: string;
-}
+};
 
-type ContactSite = ContactInfo[]
+type ContactSite = ContactInfo[];
 
+// type 跟隨 icon 名稱
 export const CONTACT: ContactSite = [
   {
-    type: "Soundcloud",
+    type: "soundcloud",
     href: "#",
     displayAs: "sc",
   },
   {
-    type: "Instagram",
+    type: "instagram",
     href: "",
     displayAs: "ig",
   },
   {
-    type: "X",
+    type: "x-twitter",
     href: "https://x.com/BillGates",
     displayAs: "x",
   },
