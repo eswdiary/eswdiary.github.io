@@ -2,8 +2,9 @@
 title: "2022 - EP 青春合成指南 Youth Synthesis Guide"
 date: "2022-01-01"
 draft: false
+ogImage: "/projects/album1.jpg"
 ---
 
 ## 2022 - EP 青春合成指南 Youth Synthesis Guide
 
-![album](./album.jpg)
+![album](/projects/album1.jpg)

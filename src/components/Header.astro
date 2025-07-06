@@ -37,7 +37,7 @@ const anyProjects =
         {
           anyBlogPosts && (
             <>
-              <span>{`|`}</span>
+              <span>{`/`}</span>
               <TextLink href={resolvePath("/blog", Astro.url.pathname)}>
                 blog
               </TextLink>
@@ -47,7 +47,7 @@ const anyProjects =
         {
           anyTalks && (
             <>
-              <span>{`|`}</span>
+              <span>{`/`}</span>
               <TextLink href={resolvePath("/talks", Astro.url.pathname)}>
                 talks
               </TextLink>
@@ -57,14 +57,14 @@ const anyProjects =
         {
           anyProjects && (
             <>
-              <span>{`|`}</span>
+              <span>{`/`}</span>
               <TextLink href={resolvePath("/projects", Astro.url.pathname)}>
                 projects
               </TextLink>
             </>
           )
         }
-        <span>{`|`}</span>
+        <span>{`  `}</span>
         <button
           id="magnifying-glass"
           aria-label="Search"

@@ -4,6 +4,8 @@ import RootPageIndex from "@components/RootPageIndex.astro";
 import { PROJECTS } from "@consts";
 import PageNavigation from "@components/PageNavigation.astro";
 import ProjectCardButton from "@components/ProjectCardButton.astro";
+import { getCollection } from "astro:content";
+import ProjectGalleryCard from "@components/ProjectGalleryCard.astro";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const { entries } = await getFilteredCollectionEntries("projects");
@@ -24,18 +26,19 @@ const entries = page.data.map((pageEntry) => ({
 }));
 ---
 
+<!-- 按日期排序 -->
 <RootPageIndex title="Projects">
   {
     (
-      <ul class="animate not-prose mb-12 flex flex-col gap-4">
+      <ul class="animate not-prose mb-12 grid grid-cols-2 gap-6 lg:grid-cols-3">
         {entries.map((entry) => (
           <li>
-            <ProjectCardButton entry={entry} />
+            {/* <ProjectCardButton entry={entry} /> */}
+            <ProjectGalleryCard entry={entry} />
           </li>
         ))}
       </ul>
     )
   }
-
   <PageNavigation page={page} />
 </RootPageIndex>

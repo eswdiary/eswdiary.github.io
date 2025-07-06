@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { resolvePath } from "@lib/utils";
+
+type Props = {
+  entry: CollectionEntry<"projects">;
+};
+
+const { entry } = Astro.props;
+const image = entry.data.ogImage ?? "/default-cover.jpeg";
+---
+
+<!-- 自訂作品集卡片 -->
+<a
+  href={resolvePath(`/${entry.collection}/${entry.slug}`, Astro.url.pathname)}
+  class="group block aspect-square overflow-hidden rounded-lg border border-black/15 bg-white shadow transition-all duration-300 hover:shadow-lg dark:border-white/20 dark:bg-neutral-900"
+>
+  <img
+    src={image}
+    alt={entry.data.title}
+    class="h-full w-full object-cover opacity-60 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
+    loading="lazy"
+  />
+  <!-- 圖片標題 -->
+  <!-- <div class="p-4">
+    <div class="mb-1 text-lg font-bold">{entry.data.title}</div>
+    <div class="text-gray-500 text-sm">{entry.data.description}</div>
+  </div> -->
+</a>
