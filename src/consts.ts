@@ -17,7 +17,7 @@ export const GLOBAL: GlobalSite = {
   title: "ewd",
   description: "Experimental and more",
   author: "ewd",
-  authorPhotoSrc: "/ewd_black.jpg",
+  authorPhotoSrc: "/logo/ewd_black.jpg",
   // logo: {
   //   darkThemeSrc: "/logo/logo_dark.png",
   //   lightThemeSrc: "/logo/logo_light.png",
@@ -34,7 +34,7 @@ type HomeSite = {
   talkEntries?: number;
 };
 
-// Home site entries
+// 首頁入口顯示數量
 // --------------------------------
 export const HOME: HomeSite = {
   blogEntries: 5,
@@ -51,6 +51,7 @@ type BlogSite = CollectionSite & {
   };
 };
 
+// 版權資訊
 export const BLOG: BlogSite = {
   pageSize: 10,
   license: {
@@ -71,7 +72,7 @@ export const TAGS: CollectionSite = {
   pageSize: 10,
 };
 
-// Contact details
+// 聯絡欄
 // --------------------------------
 type ContactInfo = {
   type: string;

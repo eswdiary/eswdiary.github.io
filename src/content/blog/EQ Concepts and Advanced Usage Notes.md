@@ -2,7 +2,7 @@
 title: "EQ 的觀念與進階用法筆記"
 date: "2025-04-12"
 draft: false
-tag:
+tags:
   - Sound Design（聲音設計）
 ---
 
@@ -57,7 +57,7 @@ IR 表示在聲音上表示「**一個系統的聲音特性**」。
 
 #### IIR、FIR
 
-> _數位濾波器分成兩種類型 – IIR (Infinite Impulse Response) 跟 FIR (Finite Impulse Response)。[^2]_
+> 數位濾波器分成兩種類型 – IIR (Infinite Impulse Response) 跟 FIR (Finite Impulse Response)。[^2]
 
 IIR 理論上會無限延長對 Impulse 的響應，而 FIR 會根據目前與過去一段時間內的輸入訊號來計算輸出，雖然會因較大量的計算產生延遲，但相對也比較穩定，也就是所謂的 Minimum phase EQ（IIR） 和 Linear phase EQ（FIR） 的區別。
 
