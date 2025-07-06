@@ -13,7 +13,7 @@ import TextLink from "@components/TextLink.astro";
       </div>
     </div>
     <div class="flex items-center justify-between">
-      <div>{new Date().getFullYear()} | {GLOBAL.title} | {GLOBAL.author}</div>
+      <div>{new Date().getFullYear()} | @{GLOBAL.author}</div>
 
       <div class="flex flex-wrap items-center gap-1.5">
         <button
@@ -89,11 +89,11 @@ import TextLink from "@components/TextLink.astro";
       </div>
     </div>
     <div>
-      <div style="font-size: small">
+      <!-- <div style="font-size: small">
         theme: <TextLink href="https://github.com/bartoszlenar/astro-milidev"
           >Astro Milidev</TextLink
         >
-      </div>
+      </div> -->
     </div>
   </Container>
 </footer>
