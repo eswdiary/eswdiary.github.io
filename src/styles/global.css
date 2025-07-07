@@ -39,6 +39,7 @@ footer {
 }
 
 /* H1 設置 */
+/* 首頁除外 */
 @layer utilities {
   body h1 {
     @apply text-center;
@@ -55,6 +56,7 @@ article {
   @apply prose-headings:text-black prose-headings:dark:text-white/75;
 }
 
+/* 顏色定義在 tailwind.config.mjs */
 @layer utilities {
   /* 標題加上 # 字號 */
   article h2::before {

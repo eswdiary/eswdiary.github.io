@@ -14,7 +14,7 @@ export type GlobalSite = {
 };
 
 export const GLOBAL: GlobalSite = {
-  title: "$hello@eswd",
+  title: "$hello@ewd",
   description: "Experimental and more",
   author: "ewd",
   authorPhotoSrc: "/logo/ewd_black.jpg",
