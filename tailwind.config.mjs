@@ -40,11 +40,10 @@ export default {
           500: "#58a493",
           600: "#409573",
           700: "#287663",
-          800: "#1f5f53", // This is your original blue
+          800: "#7daea3", // This is your original blue
           900: "#174f43",
-          DEFAULT: "#1f5f53", // Default blue color
+          DEFAULT: "#7daea3", // Default blue color
         },
-        "purple": "#d3869b",
         "purple": {
           100: "#f2d5f5",
           200: "#eebeea",
@@ -82,6 +81,7 @@ export default {
           DEFAULT: "#e78a4e", // Default orange color
         },
         "gray": "#a89984",
+        "foreground": "#ddc7a1",
         "visual-red": "#442e2d",
         "visual-blue": "#2e3b3b",
         "visual-yellow": "#473c29",
