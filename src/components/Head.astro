@@ -122,9 +122,11 @@ const ogImageFullUrl = new URL(resolvePath(ogImage), Astro.site);
 
     const lightThemeButton = document.getElementById("light-theme-button");
     lightThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "light");
-      toggleTheme(false);
-      updateThemeButtons();
+      alert("Light theme is not available yet 人(_ _*)");
+      // 暫先移除 light theme
+      // localStorage.setItem("theme", "light");
+      // toggleTheme(false);
+      // updateThemeButtons();
     });
 
     const darkThemeButton = document.getElementById("dark-theme-button");
@@ -136,8 +138,11 @@ const ogImageFullUrl = new URL(resolvePath(ogImage), Astro.site);
 
     const systemThemeButton = document.getElementById("system-theme-button");
     systemThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "system");
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      // 暫先移除跟隨系統主題
+      // localStorage.setItem("theme", "system");
+      localStorage.setItem("theme", "dark");
+      // toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      toggleTheme(true);
       updateThemeButtons();
     });
 

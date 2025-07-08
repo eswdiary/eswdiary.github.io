@@ -1,8 +1,8 @@
 # Astro blog
 
-記一些容易忘記的雜項
+記一些容易忘記的設定雜項
 
-## Callout
+## Callout 種類
 
 目前有設定 5 種
 
@@ -28,7 +28,7 @@ import Callout from "@/components/Callout.astro";
 
 僅 `.mdx` 可以使用
 
-## 連結的 hover
+## Link 的 hover 效果
 
 在 `TextLink.astro` 設定
 
@@ -40,7 +40,7 @@ import Callout from "@/components/Callout.astro";
 
 在 `Bio.astro` 設定
 
-## iframe
+## iframe 嵌入
 
 使用 youtube 嵌入的範例，需要動用 tailwind 的 aspect-video，詳見： [Aspect Ratio - Tailwind CSS](https://v3.tailwindcss.com/docs/aspect-ratio)
 
@@ -59,6 +59,6 @@ import Callout from "@/components/Callout.astro";
 </div>
 ```
 
-## License
+## Light / Dark mode
 
-MIT!
+邏輯寫在 `Head.astro` 裡，但目前亮色維護中……
