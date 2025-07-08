@@ -86,17 +86,17 @@ type ContactSite = ContactInfo[];
 export const CONTACT: ContactSite = [
   {
     type: "soundcloud",
-    href: "#",
+    href: "https://soundcloud.com/eswd",
     displayAs: "sc",
   },
   {
     type: "instagram",
-    href: "",
+    href: "https://www.instagram.com/eswdiary_/",
     displayAs: "ig",
   },
   {
     type: "x-twitter",
-    href: "https://x.com/BillGates",
+    href: "https://x.com/eswdiary",
     displayAs: "x",
   },
 ];

@@ -33,23 +33,22 @@ const anyProjects =
         <!-- <TextLink href={resolvePath("/hire-me", Astro.url.pathname)}
           >hire me</TextLink
         > -->
-        {" "}
-        {
-          anyBlogPosts && (
-            <>
-              <span>{`/`}</span>
-              <TextLink href={resolvePath("/blog", Astro.url.pathname)}>
-                blog
-              </TextLink>
-            </>
-          )
-        }
         {
           anyTalks && (
             <>
               <span>{`/`}</span>
               <TextLink href={resolvePath("/talks", Astro.url.pathname)}>
                 talks
+              </TextLink>
+            </>
+          )
+        }
+        {
+          anyBlogPosts && (
+            <>
+              <span>{`/`}</span>
+              <TextLink href={resolvePath("/blog", Astro.url.pathname)}>
+                blog
               </TextLink>
             </>
           )
