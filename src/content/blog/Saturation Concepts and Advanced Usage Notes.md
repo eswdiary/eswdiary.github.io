@@ -6,16 +6,17 @@ tags:
   - Sound Design（聲音設計）
 ---
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/qQPYMfcPzY0?si=OTE9KJMemy2v1hN4"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+<div class="aspect-video w-full">
+  <iframe
+    class="h-full w-full"
+    src="https://www.youtube.com/embed/qQPYMfcPzY0?si=OTE9KJMemy2v1hN4"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
 
 > 筆記因可能的版權問題刪去之嵌入影像內容，皆有附上來源與連結方便查閱。
 

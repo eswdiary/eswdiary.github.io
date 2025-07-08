@@ -2,11 +2,9 @@
 title: "《這一切都與我無關》演出回顧"
 date: "2024-09-29"
 draft: false
-tags:
-  - Live
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VeBh8Za_ETM?si=cxMZqLAmmmvKoefU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+- [Live > 《這一切都與我無關》](../talks/none-of-this-has-anything-to-do-with-me/)
 
 ## 前情
 
