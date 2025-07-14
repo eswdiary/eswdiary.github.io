@@ -1,0 +1,33 @@
+---
+title: "《禾日鑲聲》演出回顧"
+date: "2025-07-14"
+draft: false
+---
+
+import TextLink from "@/components/TextLink.astro";
+
+📺 演出影片：<TextLink href="/talks/le-temps-retrouve-hrxs" external>Live > 《Le Temps retrové 禾日鑲聲》</TextLink>
+
+## 訊號流
+
+這整個演出的設備工作 flow 大概是：
+
+- Strudel → OSC → SC → Pipewire → Audio Interface
+
+## 演出計劃
+
+主要是因為活動偏向展覽性質，演出加上解說時間總加大約在十分鐘以內，因此採取一邊操作並解說的模式進行，畢竟 live coding 實在也沒什麼演出的規定之類的，也很難介定哪邊是真正的開始或結束，只要我想達到的最終狀態有呈現出來，覺得就算是達到目標。
+
+## 技術棧與困難
+
+主要遇到的問題應該是從線性轉向 live coding 的「編曲」有些不太習慣，還有一個原因就是一開始對它還不算很熟，抓不清楚可以達到什麼程度的表現效果。(所幸官方的 doc 還蠻平易近人的……)
+
+後來我摸出一套流程，可供參考:
+
+1. 先決定整體 BPM
+2. 在 DAW 試做一個「主題」(可能 4 〜 16 小節的循環)和預計加入的聲響
+3. 按照需求將 sample 切片(1/4、1/8、1/16……)，方便對上時間，也比較不會產生 pitch 改變太大的問題
+
+## 與 Hydra 的整合
+
+在 strudel 裡可以直接把 hydra 也放進去一起使用，甚至可以直接在裡面做聲音觸發、連動BPM等，省去不少工具整合的麻煩。
