@@ -8,6 +8,7 @@ import pagefind from "astro-pagefind";
 // 數學公式渲染
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import sharp from "sharp";
 
 // https://astro.build/config
 export default defineConfig({
